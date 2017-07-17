@@ -6,8 +6,8 @@ language_tabs:
   - shell: Shell
 
 toc_footers:
-  - <a href='https://flip.id/site/signup-big'>Sign Up for a Big Flip Account</a>
-  - <a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a>
+  - <a target="_blank" href='https://flip.id/site/signup-big'>Sign Up for a Big Flip Account</a>
+  - <a target="_blank" href='https://big.flip.id/api-info'>Big Flip API Dashboard</a>
 
 includes:
   - intro

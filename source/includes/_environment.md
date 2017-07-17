@@ -14,7 +14,7 @@ If you doesn't have a Big Flip account yet, or just want to try the API without 
 
 ### Production
 
-The production environment base url is [https://big.flip.id/api/v2/](https://big.flip.id/api/v1/). Every transaction made through this url will be processed (except if something goes wrong).
+The production environment base url is [https://big.flip.id/api/v2/](https://big.flip.id/api/v2/). Every transaction made through this url will be processed (except if something goes wrong).
 
 <aside class="warning">You are fully responsible to the safety of your secret key and validation token in your application. Negligence in storing those information can result in unauthorized use of your balance.<br><br>
 If you suspect those information have been leaked, you can change it in your <a href="https://big.flip.id/api-info" target="_blank">Big Flip dashboard</a>.

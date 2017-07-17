@@ -58,8 +58,8 @@ curl https://big.flip.id/api/v2/disbursement/bank-account-inquiry \
 
 Attribute | Description
 ----------|-------------
-account_number | `string (required)` <br> The account number of the bank account
-bank_code | `string (required)` <br> Bank code of the account. Accepted value are listed above
+account_number | **`string (required)`** <br> The account number of the bank account
+bank_code | **`string (required)`** <br> Bank code of the account. Accepted value are listed above
 
 ### Response
 
