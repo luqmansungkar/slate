@@ -8,4 +8,4 @@ Welcome to Big Flip v2 API. Flip will help you in doing task related to sending 
 
 This documentation will be updated everytime there is a change or if there is a new endpoint introduced. Every change will be documented in the [changelog section](#changelog).
 
-I try to make this API and documentation to be as easy as possible and pleasing to the developer trying to implement this API. So if you have a suggestion or correction, feel free to send me an email at [luqman@flip.id](mailto:luqman@flip.id)
+I try to make this API and documentation to be as easy as possible and pleasing for the developer trying to implement this API. So if you have a suggestion or correction, feel free to send me an email at [luqman@flip.id](mailto:luqman@flip.id)

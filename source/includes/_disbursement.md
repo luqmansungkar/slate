@@ -40,7 +40,7 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array(
   "Content-Type: application/x-www-form-urlencoded"
 ));
 
-curl_setopt($curl, CURLOPT_USERPWD, $secret_key.":");
+curl_setopt($ch, CURLOPT_USERPWD, $secret_key.":");
 
 $response = curl_exec($ch);
 curl_close($ch);
@@ -59,11 +59,9 @@ curl https://big.flip.id/api/v2/disbursement/bank-account-inquiry \
 Attribute | Description
 ----------|-------------
 account_number | **`string (required)`** <br> The account number of the bank account
-bank_code | **`string (required)`** <br> Bank code of the account. Accepted value are listed above
+bank_code | **`string (required)`** <br> Bank code of the account. Accepted value are listed [above](#disbursement)
 
 ### Response
-
-> <h3>Response example<hr></h3>
 
 > Example of cached response
 
@@ -88,7 +86,7 @@ Content-Type: application/json
 {
     "bank_code": "bca",
     "account_number": "5465327020",
-    "account_holder": "PT Fliptech Lentera IP",
+    "account_holder": "",
     "status": "PENDING"
 }
 ```
@@ -115,8 +113,6 @@ account_holder | Name of the bank account holder
 status | Possible values are <br> <ul><li>`PENDING`<br>Inquiry still in process</li><li>`SUCCESS`<br>Inquiry process is complete and bank account number is valid</li><li>`INVALID_ACCOUNT_NUMBER`<br>Inquiry process is complete but the account number is invalid or maybe a virtual account number</li><li>`SUSPECTED_ACCOUNT`<br>Bank account have been suspected on doing fraud</li><li>`BLACK_LISTED`<br>Bank account have been confirmed on doing a fraud and therefore is blacklisted</li></ul>
 
 ### Callback
-
-> <h3>Callback handler example<hr></h3>
 
 ```php
 <?php

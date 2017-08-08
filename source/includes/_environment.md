@@ -4,7 +4,7 @@
 
 We provide a sandbox/testing environment for you. The base URL for the sandbox is [https://sandbox.flip.id/api/v2/](https://sandbox.flip.id/api/v2/).
 
-The sandbox environment is completely separated from the production environment, so that whatever you'll do in sandbox will not affect your Big Flip account. Each sandbox account will be given Rp50.000.000 balance for you to test the API.
+The sandbox environment is completely separated from the production environment, so whatever you'll do in sandbox will not affect your Big Flip account. Each sandbox account will be given Rp50.000.000 balance for you to test the API.
 
 The secret key and the validation token in sandbox will be different with the production environment.
 

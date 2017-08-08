@@ -15,7 +15,7 @@ $secret_key = "wwwwwwwxxxxxxxaaaaaaabbbbbbbbbcccccdddd";
 $encoded_auth = base64_encode($secret_key.":");
 
 $curl = curl_init();
-curl_setopt($curl, CURLOPT_HTTPHEADER, ["Authorization : Basic ".$encoded_auth]);
+curl_setopt($curl, CURLOPT_HTTPHEADER, ["Authorization: Basic ".$encoded_auth]);
 ```
 
 

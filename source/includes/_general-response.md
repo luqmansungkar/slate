@@ -17,8 +17,6 @@ This response will be sent if the value of Authorization heder or the secret key
 
 ### Not Found
 
-> <h3><hr></h3>
-
 ```json
 Status 404
 Content-Type: application/json
