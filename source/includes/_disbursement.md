@@ -18,7 +18,10 @@ Content-Type: application/x-www-form-urlencoded
 Authorization: basic [your encoded big flip secret key]
 ```
 
+
 You can use this endpoint to get the bank account holder name. For now, it still take us a few seconds to do the inquiry. The result will be returned as a callback if we haven't cached it yet. If it have been cached, you will get the result instantly. Be sure to set up your callback inquiry entry in your <a href="https://big.flip.id/api-info" target="_blank">Big Flip dashboard</a>.
+
+<aside class="notice">If <b>bri</b>, <b>bni</b>, <b>cimb</b>, and <b>mandiri</b> bank account number have not been cached yet, our system will automatically trim the leading zeros (e.g. 00350000069 will become 350000069).</aside>
 
 ### Request
 
