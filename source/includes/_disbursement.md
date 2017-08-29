@@ -345,6 +345,347 @@ Content-Type: application/json
 
 See detailed explanation at [get all disbursement](#response17)
 
+## Disbursement Queue
+
+```http
+GET /disbursement/{transaction_id}/queue HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+Authorization: basic [your encoded big flip secret key]
+```
+
+Each disbursement transaction will queued to be sent to the recipient. You can view the queue number for each transanction in this endpoint.
+
+
+### Request
+
+```php
+<?php
+
+$ch = curl_init();
+$secret_key = "wwwwwwwxxxxxxxaaaaaaabbbbbbbbbcccccdddd";
+
+curl_setopt($ch, CURLOPT_URL, "https://big.flip.id/api/v2/disbursement/123/queue");
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+curl_setopt($ch, CURLOPT_HEADER, FALSE);
+
+curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+  "Content-Type: application/x-www-form-urlencoded"
+));
+
+curl_setopt($ch, CURLOPT_USERPWD, $secret_key.":");
+
+$response = curl_exec($ch);
+curl_close($ch);
+
+var_dump($response);
+```
+
+```shell
+curl https://big.flip.id/api/v2/disbursement/123/queue \
+    -u <secret_key>: 
+```
+
+`/disbursement/{transaction_id}/queue`
+
+Replace `{transaction_id}` with the desired transaction id.
+
+
+### Response
+
+```json
+Status 200
+Content-Type: application/json
+
+{
+    "queue": 24
+}
+```
+
+## Disbursement Status
+
+```http
+GET /disbursement/status HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+Authorization: basic [your encoded big flip secret key]
+```
+
+This endpoint will return the status of all banks available in flip.id along with it's current queue.
+
+### Request
+
+```php
+<?php
+
+$ch = curl_init();
+$secret_key = "wwwwwwwxxxxxxxaaaaaaabbbbbbbbbcccccdddd";
+
+curl_setopt($ch, CURLOPT_URL, "https://big.flip.id/api/v2/disbursement/status");
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+curl_setopt($ch, CURLOPT_HEADER, FALSE);
+
+curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+  "Content-Type: application/x-www-form-urlencoded"
+));
+
+curl_setopt($ch, CURLOPT_USERPWD, $secret_key.":");
+
+$response = curl_exec($ch);
+curl_close($ch);
+
+var_dump($response);
+```
+
+```shell
+curl https://big.flip.id/api/v2/disbursement/status \
+    -u <secret_key>: 
+```
+
+### Response
+
+```json
+Status 200
+Content-Type: application/json
+
+[
+    {
+        "bank_code": "mandiri",
+        "queue": "8",
+        "status": "DISTURBED"
+    },
+    {
+        "bank_code": "bri",
+        "queue": "26",
+        "status": "OPERATIONAL"
+    },
+    {
+        "bank_code": "bni",
+        "queue": "12",
+        "status": "OPERATIONAL"
+    },
+    {
+        "bank_code": "bca",
+        "queue": "7",
+        "status": "OPERATIONAL"
+    },
+    {
+        "bank_code": "bsm",
+        "queue": "2",
+        "status": "HEAVILY_DISTURBED"
+    },
+    {
+        "bank_code": "cimb",
+        "queue": "3",
+        "status": "OPERATIONAL"
+    },
+    {
+        "bank_code": "muamalat",
+        "queue": "1",
+        "status": "OPERATIONAL"
+    }
+]
+```
+
+Attribute | Description
+----------|------------
+bank_code | Flip's bank code
+queue | Current queue for related bank. The longer/higher the queue number, the longer the transaction will be finished.
+status | The status of the disbursement process in related bank. Possible values are: <br><ul><li>`OPERATIONAL`<br>Banks are operational, disbursement will be processed as soon as possible</li><li>`DISTURBED`<br>Banks are slow or have another problem. Disbursement will still be processed, but in slower pace and might be delayed</li><li>`HEAVILY_DISTURBED`<br>Banks are having an error, offline, or another problem that result in a nearly unusable system. Disbursement to this bank can not be processed in a short time, and maybe won't be processed in the same day. You can ask for a refund if this happen.</li></ul>
+
+## City List
+
+```http
+GET /disbursement/city-list HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+Authorization: basic [your encoded big flip secret key]
+```
+
+This endpoint will return the list of available city code along with it's name. The city name will be in Indonesian.
+
+
+### Request
+
+```php
+<?php
+
+$ch = curl_init();
+$secret_key = "wwwwwwwxxxxxxxaaaaaaabbbbbbbbbcccccdddd";
+
+curl_setopt($ch, CURLOPT_URL, "https://big.flip.id/api/v2/disbursement/city-list");
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+curl_setopt($ch, CURLOPT_HEADER, FALSE);
+
+curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+  "Content-Type: application/x-www-form-urlencoded"
+));
+
+curl_setopt($ch, CURLOPT_USERPWD, $secret_key.":");
+
+$response = curl_exec($ch);
+curl_close($ch);
+
+var_dump($response);
+```
+
+```shell
+curl https://big.flip.id/api/v2/disbursement/city-list \
+    -u <secret_key>: 
+```
+
+### Response
+
+```json
+Status 200
+Content-Type: application/json
+
+{
+    "102": "Kab. Bekasi",
+    "103": "Kab. Purwakarta",
+    "106": "Kab. Karawang",
+    "108": "Kab. Bogor",
+    "109": "Kab. Sukabumi",
+    "110": "Kab. Cianjur",
+    "111": "Kab. Bandung",
+    "112": "Kab. Sumedang",
+    "113": "Kab. Tasikmalaya",
+    "114": "Kab. Garut",
+    "115": "Kab. Ciamis",
+    "116": "Kab. Cirebon",
+    "117": "Kab. Kuningan",
+    "118": "Kab. Indramayu",
+    "119": "Kab. Majalengka",
+    ...
+}
+```
+
+## Country List
+
+```http
+GET /disbursement/country-list HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+Authorization: basic [your encoded big flip secret key]
+```
+
+This endpoint will return the list of available country code along with it's name. The country name will be in Indonesian.
+
+
+### Request
+
+```php
+<?php
+
+$ch = curl_init();
+$secret_key = "wwwwwwwxxxxxxxaaaaaaabbbbbbbbbcccccdddd";
+
+curl_setopt($ch, CURLOPT_URL, "https://big.flip.id/api/v2/disbursement/country-list");
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+curl_setopt($ch, CURLOPT_HEADER, FALSE);
+
+curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+  "Content-Type: application/x-www-form-urlencoded"
+));
+
+curl_setopt($ch, CURLOPT_USERPWD, $secret_key.":");
+
+$response = curl_exec($ch);
+curl_close($ch);
+
+var_dump($response);
+```
+
+```shell
+curl https://big.flip.id/api/v2/disbursement/country-list \
+    -u <secret_key>: 
+```
+
+### Response
+
+```json
+Status 200
+Content-Type: application/json
+
+{
+    "100000": "Afganistan",
+    "100002": "Albania",
+    "100003": "Aljazair",
+    "100004": "Samoa Amerika",
+    "100005": "Andorra",
+    "100006": "Angola",
+    "100007": "Anguilla",
+    "100008": "Antartika",
+    "100009": "Antigua dan Barbuda",
+    "100010": "Argentina",
+    "100011": "Armenia",
+    ...
+}
+```
+
+## City and Country List
+
+```http
+GET /disbursement/city-country-list HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+Authorization: basic [your encoded big flip secret key]
+```
+
+This is just a combination from city and country list.
+
+
+### Request
+
+```php
+<?php
+
+$ch = curl_init();
+$secret_key = "wwwwwwwxxxxxxxaaaaaaabbbbbbbbbcccccdddd";
+
+curl_setopt($ch, CURLOPT_URL, "https://big.flip.id/api/v2/disbursement/city-country-list");
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+curl_setopt($ch, CURLOPT_HEADER, FALSE);
+
+curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+  "Content-Type: application/x-www-form-urlencoded"
+));
+
+curl_setopt($ch, CURLOPT_USERPWD, $secret_key.":");
+
+$response = curl_exec($ch);
+curl_close($ch);
+
+var_dump($response);
+```
+
+```shell
+curl https://big.flip.id/api/v2/disbursement/city-country-list \
+    -u <secret_key>: 
+```
+
+### Response
+
+```json
+Status 200
+Content-Type: application/json
+
+{
+    "102": "Kab. Bekasi",
+    "103": "Kab. Purwakarta",
+    "106": "Kab. Karawang",
+    "108": "Kab. Bogor",
+    "109": "Kab. Sukabumi",
+    "110": "Kab. Cianjur",
+    "111": "Kab. Bandung",
+    "112": "Kab. Sumedang",
+    "113": "Kab. Tasikmalaya",
+    "114": "Kab. Garut",
+    "115": "Kab. Ciamis",
+    "116": "Kab. Cirebon",
+    "117": "Kab. Kuningan",
+    "118": "Kab. Indramayu",
+    "119": "Kab. Majalengka",
+    ...
+}
+```
+
+
 ## Bank Account Inquiry
 
 ```http
