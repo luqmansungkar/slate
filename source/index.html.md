@@ -18,6 +18,7 @@ includes:
   - environment
   - race-condition
   - disbursement
+  - general
   - changelog
 
 search: true
