@@ -191,7 +191,6 @@ GET /general/maintenance HTTP/1.1
 Content-Type: application/x-www-form-urlencoded
 ```
 
-**biarkan endpoint bisa diakses tanpa otorisasi**
 This endpoint will return is Flip currently on maintenance or not. When Flip is on maintenance, you can't do any request except to this endpoint. Any request to other endpoint will return `401` status code
 
 ### Request
