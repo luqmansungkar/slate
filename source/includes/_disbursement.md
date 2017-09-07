@@ -73,7 +73,7 @@ account_number | **`string (required)`** <br> The account number of the recipien
 bank_code | **`string (required)`** <br> Bank code of the recipient bank. Accepted value are listed [above](#disbursement)
 amount | **`integer (required)`** <br> The amount of money to be disbursed
 remark | **`string (required)`** <br> Remark to be included in the transfer made to the recipient. Usually will appear as `berita transfer` or `remark` in the transfer receipt. Max length for this attribute is **18** character
-recipient_city | **`integer (required)`** <br> City code of the recipient city. This attribute is mandatory only for `bni`, `cimb`, and `bsm`. Available value can be retrieved from ...
+recipient_city | **`optional (required)`** <br> City code of the recipient city. This attribute is mandatory only for `bni`, `cimb`, and `bsm`. Available value can be retrieved from [city list](#city-list)
 
 ### Response
 
@@ -104,8 +104,7 @@ Content-Type: application/json
 }
 ```
 
-See detailed explanation at [get all disbursement](#response17)
-
+See detailed explanation at [get all disbursement](#get-all-disbursement) response.
 
 ## Get All Disbursement
 
@@ -219,10 +218,10 @@ Content-Type: application/json
                 "place_of_birth": 391,
                 "date_of_birth": "1992-01-01",
                 "address": "taman bakokekok di jalan bakokekok 15 no.2 - 230",
-                "id_type": "nat_id",
-                "sender_national_id": "asdas213123",
+                "sender_identity_type": "nat_id",
+                "sender_identity_number": "asdas213123",
                 "sender_country": 100252,
-                "profession": "babu"
+                "job": "babu"
             },
             "fee": 1000
         }
@@ -236,7 +235,7 @@ total_data | Total data returned in all page
 data_per_page | Total data returned in current page
 total_page | Total/max page available
 page | Current page
-data | Array of [disbursement object](#).
+data | Array of <b>disbursement object</b>.
 
 #### Disbursement Object
 
@@ -258,8 +257,8 @@ bundle_id | The bundle id of the transaction made from Big Flip Dashboard (csv u
 company_id | Your Big Flip account user id in our system
 recipient_city | City code of the recipient city
 created_from | The channel of which the transaction was created. Possible values are: <br><ul><li>`API`</li><li>`DASHBOARD`</li></ul>
-direction | The direction of the transaction. Possible values are: <br><ul><li>`DOMESTIC_TRANSFER`<br>Transfer from Indonesia to Indonesian recipient</li><li>`DOMESTIC_SPECIAL_TRANSFER`<br>Special disbursement from the user of  a Money Transfer Company residing in Indonesia to Indonesian recipient</li><li>`FOREIGN_INBOUND_SPECIAL_TRANSFER`<br>Special disbursement from the user of a Money Transfer Company residing in a foreign country to Indonesian recipient</li></ul>
-sender | Possible values are `null` if the transaction is a common disbursement, and [sender object](#) if the transaction is a special disbursment.
+direction | The direction of the transaction. Possible values are: <br><ul><li>`DOMESTIC_TRANSFER`<br>Common Disbursement from Indonesia to Indonesian recipient</li><li>`DOMESTIC_SPECIAL_TRANSFER`<br>Special disbursement from the user of  a Money Transfer Company residing in Indonesia to Indonesian recipient</li><li>`FOREIGN_INBOUND_SPECIAL_TRANSFER`<br>Special disbursement from the user of a Money Transfer Company residing in a foreign country to Indonesian recipient</li></ul>
+sender | Possible values are `null` if the transaction is a common disbursement, and <b>sender object</b> if the transaction is a special disbursment.
 fee | The fee of the transaction
 
 #### Sender Object
@@ -270,10 +269,10 @@ sender_name | The name of the user of the Money Transfer Company that act as a s
 place_of_birth | City/country code of the Sender's place of birth
 date_of_birth | Sender's date of birth
 address | Sender's address
-id_type | Sender's ID type. Possible value are: <br><ul><li>`nat_id`</li><li>`drv_lic`</li><li>`passport`</li></ul>
-sender_national_id | Sender's national ID
+sender_identity_type | Sender's ID type. Possible value are: <br><ul><li>`nat_id`</li><li>`drv_lic`</li><li>`passport`</li></ul>
+sender_identity_number | Sender's ID number
 sender_country | Country code of the Sender's country
-profession | Sender's profession. Possible values are:....
+job | Sender's job. Possible values are:<br><ul><li>`housewife`</li><li>`entrepreneur`</li><li>`private_employee`</li><li>`government_employee`</li><li>`foundation_board`</li><li>`indonesian_migrant_worker`</li><li>`others`</li></ul>
 
 ## Get Disbursement
 
@@ -343,7 +342,7 @@ Content-Type: application/json
 },
 ```
 
-See detailed explanation at [get all disbursement](#response17)
+See detailed explanation at [get all disbursement](#get-all-disbursement) response
 
 ## Disbursement Queue
 
@@ -790,35 +789,3 @@ bank_code | Bank code of the account
 account_number | Account number of the bank account
 account_holder | Name of the bank account holder
 status | Possible values are <br> <ul><li>`PENDING`<br>Inquiry still in process</li><li>`SUCCESS`<br>Inquiry process is complete and bank account number is valid</li><li>`INVALID_ACCOUNT_NUMBER`<br>Inquiry process is complete but the account number is invalid or maybe a virtual account number</li><li>`SUSPECTED_ACCOUNT`<br>Bank account have been suspected on doing fraud</li><li>`BLACK_LISTED`<br>Bank account have been confirmed on doing a fraud and therefore is blacklisted</li></ul>
-
-### Callback
-
-```php
-<?php
-$data = isset($_POST['data']) ? $_POST['data'] : null;
-$token = isset($_POST['token']) ? $_POST['token'] : null;
-if($token === 'the_token_you_get_from_big_flip_dashboard'){
-	$decoded_data = json_decode($data);
-	print_r($decoded_data);
-	//will print: 
-	/**
-    * {
-    *     "bank_code": "bca",
-    *     "account_number": "5465327020",
-    *     "account_holder": "PT Fliptech Lentera IP",
-    *     "status": "SUCCESS"
-    * }
-	*/
-}
-```
-
-When our system have complete the inquiry process, we will hit the URL you've provided in your <a href="https://big.flip.id/api-info" target="_blank">Big Flip dashboard</a>. The callback process will only done once, so you have to make sure that your callback URL always in good condition. 
-
-We will hit your URL using POST request with content type `application/x-www-form-urlencoded` and payload as described below:
-
-Attribute | Description
-----------|-------------
-data | `string`<br>JSON array string with content exactly the same as the response above
-token | `string`<br>Validation token to ensure that the callback is coming from our server. You can get your token in your Big Flip dashboard.
-
-Example code of how to receive the callback are shown on the right side.
