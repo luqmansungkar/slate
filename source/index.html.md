@@ -8,6 +8,7 @@ language_tabs:
 toc_footers:
   - <a target="_blank" href='https://flip.id/site/signup-big'>Sign Up for a Big Flip Account</a>
   - <a target="_blank" href='https://big.flip.id/api-info'>Big Flip API Dashboard</a>
+  - <a target="_blank" href='https://sandbox.flip.id/api-info'>Sandbox Dashboard</a>
 
 includes:
   - intro
@@ -18,6 +19,8 @@ includes:
   - environment
   - race-condition
   - disbursement
+  - special-disbursement
+  - callback
   - general
   - changelog
 
