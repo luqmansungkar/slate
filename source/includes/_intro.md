@@ -1,8 +1,9 @@
 # Introduction
 
-<aside class="notice">This is the continuation of the previous <a target="_blank" href="http://docs.bigflipv1.apiary.io/" >Big Flip API v1</a>. In this version, we focused on translating the language of the API to English. We also added several new API endpoints that only exist in v2. Starting from this version, we will try to only make new endpoints in English.<br><br>
-
-This version is still a work in progress, so right now not all endpoints from the previous version are available in this version.</aside>
+<aside class="notice">This is the continuation of the previous <a target="_blank" href="http://docs.bigflipv1.apiary.io/" >Big Flip API v1</a>. 
+If you're looking for the v1 documentation, you can <a target="_blank" href="http://docs.bigflipv1.apiary.io/" >click here</a>.
+<br>In this version, we focused on translating the language of the API to English. We also added several new API endpoints that only exist in v2. Starting from this version, we will try to only make new endpoints in English.<br><br>
+</aside>
 
 Welcome to Big Flip v2 API. Flip will help you in doing task related to sending your money, so you can focus on creating a better product.
 
