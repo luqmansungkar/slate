@@ -15,10 +15,10 @@ Valid bank code are:
 ```http
 POST /disbursement HTTP/1.1
 Content-Type: application/x-www-form-urlencoded
-Authorization: basic [your encoded big flip secret key]
+Authorization: Basic [your encoded big flip secret key]
 ```
 
-Use this endpoint to create a common disbursement transaction. For company operating as a Money Transfer Company (Perusahaan Transfer Dana), or anything related to that, please use Create Special Disbursement endpoint instead.
+Use this endpoint to create a common disbursement transaction. For company operating as a Money Transfer Company (Perusahaan Transfer Dana), or anything related to that, please use [Create Special Disbursement](#create-special-disbursement) endpoint instead.
 
 ### Request
 
@@ -73,7 +73,7 @@ account_number | **`string (required)`** <br> The account number of the recipien
 bank_code | **`string (required)`** <br> Bank code of the recipient bank. Accepted value are listed [above](#disbursement)
 amount | **`integer (required)`** <br> The amount of money to be disbursed
 remark | **`string (required)`** <br> Remark to be included in the transfer made to the recipient. Usually will appear as `berita transfer` or `remark` in the transfer receipt. Max length for this attribute is **18** character
-recipient_city | **`optional (required)`** <br> City code of the recipient city. This attribute is mandatory only for `bni`, `cimb`, and `bsm`. Available value can be retrieved from [city list](#city-list)
+recipient_city | **`integer (optional)`** <br> City code of the recipient city. This attribute is mandatory only for `bni`, `cimb`, and `bsm`. Available value can be retrieved from [city list](#city-list)
 
 ### Response
 
@@ -111,7 +111,7 @@ See detailed explanation at [get all disbursement](#get-all-disbursement) respon
 ```http
 GET /disbursement HTTP/1.1
 Content-Type: application/x-www-form-urlencoded
-Authorization: basic [your encoded big flip secret key]
+Authorization: Basic [your encoded big flip secret key]
 ```
 
 Use this endpoint to get the list of transaction you've made. By default, the result will be paginated by 20. You can change the pagination, filter, and sort the result by changing the url parameter.
@@ -156,7 +156,19 @@ pagination | **`integer (optional)`** <br> The pagination of the result. Default
 page | **`integer (optional)`** <br> The page number of the result to be viewed.
 sort | **`string (optional)`** <br> Sort the result by the attribute. Use the attribute name (e.g `sort=id`) to sort in <b>ascending</b> order or dash+attribute name (e.g `sort=-id`) to sort in <b>descending</b> order.
 
-You can also filter the result by changing **`attribute`** with the attribute to be filtered and **`value`** with the filter value. You can filter more than one attribute by appending another attribute filter to the url.
+You can also filter the result by changing **`attribute`** with the attribute to be filtered and **`value`** with the filter value. You can filter more than one attribute by appending another attribute filter to the url. Attribute that can be filtered are:
+
+* `id` - exact comparison
+* `amount` - exact comparison
+* `status` - exact comparison
+* `timestamp` - "like" comparison
+* `bank_code` - "like" comparison
+* `account_number` - "like" comparison
+* `recipient_name` - "like" comparison
+* `remark` - "like" comparison
+* `time_served` - "like" comparison
+* `created_from` - "like" comparison
+* `direction` - exact comparison
 
 Example:
 
@@ -199,7 +211,7 @@ Content-Type: application/json
             "id": 789,
             "user_id": 23,
             "amount": 10000,
-            "status": "PENDING",
+            "status": "DONE",
             "timestamp": "2017-08-24 21:21:23",
             "bank_code": "bni",
             "account_number": "0437051936",
@@ -207,7 +219,7 @@ Content-Type: application/json
             "sender_bank": "bri",
             "remark": "test remark",
             "receipt": "https://storage.biznetgiocloud.com/v1/AUTH_GIOOST443831/bukti_transfer/123993_2017-08-04%202017:07:26.jpg",
-            "time_served": "0000-00-00 00:00:00",
+            "time_served": "2017-08-25 09:11:35",
             "bundle_id": 0,
             "company_id": 7,
             "recipient_city": 391,
@@ -243,15 +255,15 @@ Attribute | Description
 ----------|-------------
 id | Flip's transaction id
 user_id | Your account user id in our system
-amount | The amount of money to be disbursed
-status | Transaction status. Possible values are: <br> <ul><li>`PENDING`<br>Disbursement is still in process</li><li>`CANCELLED`<br>The transaction is cancelled and the amount of the transaction plus the transaction fee will be credited to your balance. This will happen if the transfer process are failed for reason such as inactive recipient account, wrong account number, etc</li><li>`DONE`<br>Disbursement process is finish and the money have been sent to the recipient</li><li>`WRONG_ACCOUNT_NUMBER`<br>The recipient account number wrong or inactive. The transaction will be in this status for a while before cancelled</li></ul>
-timestamp | The time when the disbursement request created. Time will be in GMT+7
+amount | The amount of money to be disbursed in IDR
+status | Transaction status. Possible values are: <br> <ul><li>`PENDING`<br>Disbursement is still in process</li><li>`CANCELLED`<br>The transaction is cancelled and the amount of the transaction plus the transaction fee will be credited to your balance. This will happen if the transfer process are failed for reason such as inactive recipient account, wrong account number, etc</li><li>`DONE`<br>Disbursement process is finished and the money have been sent to the recipient</li></ul>
+timestamp | The time when the disbursement request created. Time will be in GMT+7 with `yyyy-mm-dd hh:mm:ss` format
 bank_code | Bank code of the recipient bank
 account_number | The account number of the recipient
 recipient_name | The name of the recipient account holder. If the account number haven't cached by Flip yet, this attribute will show <b>`-`</b> (dash) instead
 sender_bank | The default sender bank in your account
 remark | Remark to be included in the transfer made to the recipient
-receipt | Url of the transfer receipt. The receipt will be directly taken by screenshot from the internet banking interface of each bank. This attribute will only show the url when the status is `DONE`
+receipt | Url of the transfer receipt. The receipt will be a screenshot taken from the internet banking interface of each bank. This attribute will only show the url when the status is `DONE`
 time_served | The time when the transaction is finished. Will only show valid value when the status is `DONE`
 bundle_id | The bundle id of the transaction made from Big Flip Dashboard (csv upload or manual input). For the transaction created from API, the value will always be `0`
 company_id | Your Big Flip account user id in our system
@@ -269,8 +281,8 @@ sender_name | The name of the user of the Money Transfer Company that act as a s
 place_of_birth | City/country code of the Sender's place of birth
 date_of_birth | Sender's date of birth
 address | Sender's address
-sender_identity_type | Sender's ID type. Possible value are: <br><ul><li>`nat_id`</li><li>`drv_lic`</li><li>`passport`</li></ul>
-sender_identity_number | Sender's ID number
+sender_identity_type | Sender's identity type. Possible value are: <br><ul><li>`nat_id`</li><li>`drv_lic`</li><li>`passport`</li></ul>
+sender_identity_number | Sender's identity number
 sender_country | Country code of the Sender's country
 job | Sender's job. Possible values are:<br><ul><li>`housewife`</li><li>`entrepreneur`</li><li>`private_employee`</li><li>`government_employee`</li><li>`foundation_board`</li><li>`indonesian_migrant_worker`</li><li>`others`</li></ul>
 
@@ -279,7 +291,7 @@ job | Sender's job. Possible values are:<br><ul><li>`housewife`</li><li>`entrepr
 ```http
 GET /disbursement/{transaction_id} HTTP/1.1
 Content-Type: application/x-www-form-urlencoded
-Authorization: basic [your encoded big flip secret key]
+Authorization: Basic [your encoded big flip secret key]
 ```
 
 Use this endpoint to get one specific transaction specified by `transaction_id` in the request url.
@@ -349,7 +361,7 @@ See detailed explanation at [get all disbursement](#get-all-disbursement) respon
 ```http
 GET /disbursement/{transaction_id}/queue HTTP/1.1
 Content-Type: application/x-www-form-urlencoded
-Authorization: basic [your encoded big flip secret key]
+Authorization: Basic [your encoded big flip secret key]
 ```
 
 Each disbursement transaction will queued to be sent to the recipient. You can view the queue number for each transanction in this endpoint.
@@ -405,7 +417,7 @@ Content-Type: application/json
 ```http
 GET /disbursement/status HTTP/1.1
 Content-Type: application/x-www-form-urlencoded
-Authorization: basic [your encoded big flip secret key]
+Authorization: Basic [your encoded big flip secret key]
 ```
 
 This endpoint will return the status of all banks available in flip.id along with it's current queue.
@@ -448,37 +460,37 @@ Content-Type: application/json
 [
     {
         "bank_code": "mandiri",
-        "queue": "8",
+        "queue": 8,
         "status": "DISTURBED"
     },
     {
         "bank_code": "bri",
-        "queue": "26",
+        "queue": 26,
         "status": "OPERATIONAL"
     },
     {
         "bank_code": "bni",
-        "queue": "12",
+        "queue": 12,
         "status": "OPERATIONAL"
     },
     {
         "bank_code": "bca",
-        "queue": "7",
+        "queue": 7,
         "status": "OPERATIONAL"
     },
     {
         "bank_code": "bsm",
-        "queue": "2",
+        "queue": 2,
         "status": "HEAVILY_DISTURBED"
     },
     {
         "bank_code": "cimb",
-        "queue": "3",
+        "queue": 3,
         "status": "OPERATIONAL"
     },
     {
         "bank_code": "muamalat",
-        "queue": "1",
+        "queue": 1,
         "status": "OPERATIONAL"
     }
 ]
@@ -495,7 +507,7 @@ status | The status of the disbursement process in related bank. Possible values
 ```http
 GET /disbursement/city-list HTTP/1.1
 Content-Type: application/x-www-form-urlencoded
-Authorization: basic [your encoded big flip secret key]
+Authorization: Basic [your encoded big flip secret key]
 ```
 
 This endpoint will return the list of available city code along with it's name. The city name will be in Indonesian.
@@ -561,7 +573,7 @@ Content-Type: application/json
 ```http
 GET /disbursement/country-list HTTP/1.1
 Content-Type: application/x-www-form-urlencoded
-Authorization: basic [your encoded big flip secret key]
+Authorization: Basic [your encoded big flip secret key]
 ```
 
 This endpoint will return the list of available country code along with it's name. The country name will be in Indonesian.
@@ -623,7 +635,7 @@ Content-Type: application/json
 ```http
 GET /disbursement/city-country-list HTTP/1.1
 Content-Type: application/x-www-form-urlencoded
-Authorization: basic [your encoded big flip secret key]
+Authorization: Basic [your encoded big flip secret key]
 ```
 
 This is just a combination from city and country list.
@@ -690,13 +702,11 @@ Content-Type: application/json
 ```http
 POST /disbursement/bank-account-inquiry HTTP/1.1
 Content-Type: application/x-www-form-urlencoded
-Authorization: basic [your encoded big flip secret key]
+Authorization: Basic [your encoded big flip secret key]
 ```
 
 
 You can use this endpoint to get the bank account holder name. For now, it still take us a few seconds to do the inquiry. The result will be returned as a callback if we haven't cached it yet. If it have been cached, you will get the result instantly. Be sure to set up your callback inquiry entry in your <a href="https://big.flip.id/api-info" target="_blank">Big Flip dashboard</a>.
-
-<aside class="notice">If <b>bri</b>, <b>bni</b>, <b>cimb</b>, and <b>mandiri</b> bank account number have not been cached yet, our system will automatically trim the leading zeros (e.g. 00350000069 will become 350000069).</aside>
 
 ### Request
 
@@ -788,4 +798,6 @@ Attribute | Description
 bank_code | Bank code of the account
 account_number | Account number of the bank account
 account_holder | Name of the bank account holder
-status | Possible values are <br> <ul><li>`PENDING`<br>Inquiry still in process</li><li>`SUCCESS`<br>Inquiry process is complete and bank account number is valid</li><li>`INVALID_ACCOUNT_NUMBER`<br>Inquiry process is complete but the account number is invalid or maybe a virtual account number</li><li>`SUSPECTED_ACCOUNT`<br>Bank account have been suspected on doing fraud</li><li>`BLACK_LISTED`<br>Bank account have been confirmed on doing a fraud and therefore is blacklisted</li></ul>
+status | Possible values are <br> <ul><li>`PENDING`<br>Inquiry still in process</li><li>`SUCCESS`<br>Inquiry process is complete and bank account number is valid</li><li>`INVALID_ACCOUNT_NUMBER`<br>Inquiry process is complete but the account number is invalid or maybe a virtual account number</li><li>`SUSPECTED_ACCOUNT`<br>Bank account have been suspected on doing fraud. You still can do a disbursement to this account.</li><li>`BLACK_LISTED`<br>Bank account have been confirmed on doing a fraud and therefore is blacklisted. You can't do a disbursment to this account.</li></ul>
+
+<aside class="notice"><code class="prettyprint">SUSPECTED_ACCOUNT</code> and <code class="prettyprint">BLACK_LISTED</code> are based on Flip's user report.  This might be inacurrate, and we flag an exact string of the account number reported by our users. For example, <code class="prettyprint">350000069</code> will be different with <code class="prettyprint">00350000069</code> although it may be the same account. We are still working on a better way to handle this leading zeroes issue.</aside>
