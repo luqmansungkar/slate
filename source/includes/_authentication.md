@@ -20,7 +20,7 @@ curl_setopt($curl, CURLOPT_HTTPHEADER, ["Authorization: Basic ".$encoded_auth]);
 
 
 ```shell
-curl --user <wwwwwwwxxxxxxxaaaaaaabbbbbbbbbcccccdddd>: https://sandbox.flip.id/api/v1/disbursement
+curl --user <wwwwwwwxxxxxxxaaaaaaabbbbbbbbbcccccdddd>: https://big.flip.id/api/v2/disbursement
 ```
 
 
