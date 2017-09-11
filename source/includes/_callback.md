@@ -11,6 +11,10 @@ if($token === 'the_token_you_get_from_big_flip_dashboard'){
 }
 ```
 
+```shell
+# See php tab for sample code
+```
+
 > Example of bank account inquiry
 
 ```json
@@ -83,7 +87,7 @@ if($token === 'the_token_you_get_from_big_flip_dashboard'){
 }
 ```
 
-When your transaction status changed to `DONE` or `WRONG_ACCOUNT_NUMBER`, or when our system have complete the bank account inquiry process, we will hit the URL you've provided in your <a href="https://big.flip.id/api-info" target="_blank">Big Flip dashboard</a>. The provided URL must return a `200` HTTP Status Code. If the URL return another HTTP Status Code, our system will retry the request 5 times, with 2 minute interval for disbursement callback. For bank account inquiry, we'll only do the callback once, so you have to make sure that your callback URL always in good condition.
+When your transaction status changed to `DONE` or `CANCELLED`, or when our system have complete the bank account inquiry process, we will hit the URL you've provided in your <a href="https://big.flip.id/api-info" target="_blank">Big Flip dashboard</a>. The provided URL must return a `200` HTTP Status Code. If the URL return another HTTP Status Code, our system will retry the request 5 times, with 2 minute interval for disbursement callback. For bank account inquiry, we'll only do the callback once, so you have to make sure that your callback URL always in good condition.
 
 We will hit your URL using POST request with content type `application/x-www-form-urlencoded` and payload as described below:
 

@@ -18,4 +18,4 @@ Content-Type: application/json
 
 Race condition will happen if there are several transfer request made at nearly the same time (only several milisecon gap). This will sometimes result in inconsistency of your balance. To prevent this from happened, our system will only accept the first transaction, and foil the others. The foiled request will get response shown on the right side.
 
-Our system will make several attemp internally before foil your request. But in case this is still happened, your system should retry the request if it get this response.
+Our system will make several attemp internally before foiling your request. But in case this is still happened, your system should retry the request if it get this response.
