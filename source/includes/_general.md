@@ -229,6 +229,6 @@ Status 200
 Content-Type: application/json
 
 {
-    "balance": 49656053
+    "maintenance": false
 }
 ```

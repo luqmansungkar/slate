@@ -66,7 +66,7 @@ if($token === 'the_token_you_get_from_big_flip_dashboard'){
     "recipient_name": "- FLIPTECH LENTERA INSPIRASI P",
     "sender_bank": "bri",
     "remark": "testing",
-    "receipt": "",
+    "receipt": "https://storage.biznetgiocloud.com/v1/AUTH_GIOOST443831/bukti_transfer/123993_2017-08-04%202017:07:26.jpg",
     "time_served": "2017-09-06 14:39:55",
     "bundle_id": 0,
     "company_id": 7,
@@ -74,7 +74,7 @@ if($token === 'the_token_you_get_from_big_flip_dashboard'){
     "created_from": "API",
     "direction": "DOMESTIC_SPECIAL_TRANSFER",
     "sender": {
-        "sender_name": "kebelet",
+        "sender_name": "John Doe",
         "place_of_birth": 391,
         "date_of_birth": "1992-01-31",
         "address": "taman bakokekok di jalan bakokekok 15 no.2 - 230",

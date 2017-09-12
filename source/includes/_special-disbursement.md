@@ -7,7 +7,7 @@ Special Disbursement is a type of disbursement for a company operating as a Mone
 ```http
 POST /special-disbursement HTTP/1.1
 Content-Type: application/x-www-form-urlencoded
-Authorization: basic [your encoded big flip secret key]
+Authorization: Basic [your encoded big flip secret key]
 ```
 
 ### Request
@@ -81,7 +81,7 @@ bank_code | **`string (required)`** <br> Bank code of the recipient bank. Accept
 amount | **`integer (required)`** <br> The amount of money to be disbursed
 remark | **`string (required)`** <br> Remark to be included in the transfer made to the recipient. Usually will appear as `berita transfer` or `remark` in the transfer receipt. Max length for this attribute is **18** character
 recipient_city | **`integer (optional)`** <br> City code of the recipient city. This attribute is mandatory only for `bni`, `cimb`, and `bsm`. Available value can be retrieved from [city list](#city-list)
-place_of_birth | **`integer (required)`** <br> City/country code of the Sender's place of birth. Available value can be retrieved from [city/country list](#city-and-country-list)
+place_of_birth | **`integer (required)`** <br> City/country code of the sender's place of birth. Use city code if the sender's place of birth is in Indonesia, and country code if outside Indonesia. Available value can be retrieved from [city/country list](#city-and-country-list)
 date_of_birth | **`string/date (required)`** <br> Sender's date of birth with `YYYY-MM-DD` format
 sender_identity_type | **`string (required)`** <br> Sender's ID type. Accepted value are: <br><ul><li>`nat_id`<br>National Id Card or KTP in Indonesia</li><li>`drv_lic`<br>Driving license</li><li>`passport`</li></ul>
 sender_name | **`string (required)`** <br> The name of the user of the Money Transfer Company that act as a sender
@@ -115,7 +115,7 @@ Content-Type: application/json
     "created_from": "API",
     "direction": "DOMESTIC_SPECIAL_TRANSFER",
     "sender": {
-        "sender_name": "kebelet",
+        "sender_name": "John Doe",
         "place_of_birth": 391,
         "date_of_birth": "1992-01-31",
         "address": "taman bakokekok di jalan bakokekok 15 no.2 - 230",

@@ -226,7 +226,7 @@ Content-Type: application/json
             "created_from": "API",
             "direction": "FOREIGN_INBOUND_SPECIAL_TRANSFER",
             "sender": {
-                "sender_name": "kebelet",
+                "sender_name": "John Doe",
                 "place_of_birth": 391,
                 "date_of_birth": "1992-01-01",
                 "address": "taman bakokekok di jalan bakokekok 15 no.2 - 230",
