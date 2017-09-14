@@ -101,49 +101,49 @@ Content-Type: application/json
 
 [
     {
-        "code": "mandiri",
+        "bank_code": "mandiri",
         "name": "Mandiri",
         "fee": 3500,
         "queue": 8,
         "status": "DISTURBED"
     },
     {
-        "code": "bri",
+        "bank_code": "bri",
         "name": "BRI",
         "fee": 1000,
         "queue": 39,
         "status": "OPERATIONAL"
     },
     {
-        "code": "bni",
+        "bank_code": "bni",
         "name": "BNI",
         "fee": 3500,
         "queue": 57,
         "status": "OPERATIONAL"
     },
     {
-        "code": "bca",
+        "bank_code": "bca",
         "name": "BCA",
         "fee": 3500,
         "queue": 8,
         "status": "OPERATIONAL"
     },
     {
-        "code": "bsm",
+        "bank_code": "bsm",
         "name": "Bank Syariah Mandiri",
         "fee": 3500,
         "queue": 2,
         "status": "HEAVILY_DISTURBED"
     },
     {
-        "code": "cimb",
+        "bank_code": "cimb",
         "name": "CIMB Niaga",
         "fee": 3500,
         "queue": 3,
         "status": "OPERATIONAL"
     },
     {
-        "code": "muamalat",
+        "bank_code": "muamalat",
         "name": "Muamalat",
         "fee": 3500,
         "queue": 1,
