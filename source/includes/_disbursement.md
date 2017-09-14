@@ -10,7 +10,7 @@ Valid bank code are:
 * `muamalat` - Bank Muamalat
 * `cimb` - CIMB Niaga & CIMB Niaga Syariah
 
-You can also get this list of bank code along with another information in [get bank code](#get-bank-code)
+You can also get this list of bank code along with another information in [get bank info](#get-bank-info)
 
 ## Create Disbursement
 
@@ -413,96 +413,6 @@ Content-Type: application/json
     "queue": 24
 }
 ```
-
-## Disbursement Status
-
-```http
-GET /disbursement/status HTTP/1.1
-Content-Type: application/x-www-form-urlencoded
-Authorization: Basic [your encoded big flip secret key]
-```
-
-This endpoint will return the status of all banks available in flip.id along with it's current queue.
-
-### Request
-
-```php
-<?php
-
-$ch = curl_init();
-$secret_key = "wwwwwwwxxxxxxxaaaaaaabbbbbbbbbcccccdddd";
-
-curl_setopt($ch, CURLOPT_URL, "https://big.flip.id/api/v2/disbursement/status");
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-curl_setopt($ch, CURLOPT_HEADER, FALSE);
-
-curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-  "Content-Type: application/x-www-form-urlencoded"
-));
-
-curl_setopt($ch, CURLOPT_USERPWD, $secret_key.":");
-
-$response = curl_exec($ch);
-curl_close($ch);
-
-var_dump($response);
-```
-
-```shell
-curl https://big.flip.id/api/v2/disbursement/status \
-    -u <secret_key>: 
-```
-
-### Response
-
-```json
-Status 200
-Content-Type: application/json
-
-[
-    {
-        "bank_code": "mandiri",
-        "queue": 8,
-        "status": "DISTURBED"
-    },
-    {
-        "bank_code": "bri",
-        "queue": 26,
-        "status": "OPERATIONAL"
-    },
-    {
-        "bank_code": "bni",
-        "queue": 12,
-        "status": "OPERATIONAL"
-    },
-    {
-        "bank_code": "bca",
-        "queue": 7,
-        "status": "OPERATIONAL"
-    },
-    {
-        "bank_code": "bsm",
-        "queue": 2,
-        "status": "HEAVILY_DISTURBED"
-    },
-    {
-        "bank_code": "cimb",
-        "queue": 3,
-        "status": "OPERATIONAL"
-    },
-    {
-        "bank_code": "muamalat",
-        "queue": 1,
-        "status": "OPERATIONAL"
-    }
-]
-```
-
-Attribute | Description
-----------|------------
-bank_code | Flip's bank code
-queue | Current queue for related bank. The longer/higher the queue number, the longer the transaction will be finished.
-status | The status of the disbursement process in related bank. Possible values are: <br><ul><li>`OPERATIONAL`<br>Banks are operational, disbursement will be processed as soon as possible</li><li>`DISTURBED`<br>Banks are slow or have another problem. Disbursement will still be processed, but in slower pace and might be delayed</li><li>`HEAVILY_DISTURBED`<br>Banks are having an error, offline, or another problem that result in a nearly unusable system. Disbursement to this bank can not be processed in a short time, and maybe won't be processed in the same day. You can ask for a refund if this happen.</li></ul>
 
 ## City List
 

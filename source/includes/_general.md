@@ -50,7 +50,7 @@ Content-Type: application/json
 }
 ```
 
-## Get Bank Code
+## Get Bank Info
 
 ```http
 GET /general/banks HTTP/1.1
@@ -58,7 +58,7 @@ Content-Type: application/x-www-form-urlencoded
 Authorization: basic [your encoded big flip secret key]
 ```
 
-This endpoint will return list of bank codes, along with its Indonesian name, and the fees that'll be charged if you send money to each bank.
+This endpoint will return list of bank codes, along with several other information. We recommend you to hit this endpoint before creating a disbursement so that you can give information like `queue` or `status` to your user or customer.
 
 ### Request
 
@@ -89,6 +89,10 @@ curl https://big.flip.id/api/v2/general/banks \
     -u <secret_key>: 
 ```
 
+/banks?code=**`bank_code`**
+
+You can also provide an optional bank code to filter the result to a specific bank only
+
 ### Response
 
 ```json
@@ -98,41 +102,80 @@ Content-Type: application/json
 [
     {
         "code": "mandiri",
-        "nama": "Mandiri",
-        "fee": 3500
+        "name": "Mandiri",
+        "fee": 3500,
+        "queue": 8,
+        "status": "DISTURBED"
     },
     {
         "code": "bri",
-        "nama": "BRI",
-        "fee": 1000
+        "name": "BRI",
+        "fee": 1000,
+        "queue": 39,
+        "status": "OPERATIONAL"
     },
     {
         "code": "bni",
-        "nama": "BNI",
-        "fee": 3500
+        "name": "BNI",
+        "fee": 3500,
+        "queue": 57,
+        "status": "OPERATIONAL"
     },
     {
         "code": "bca",
-        "nama": "BCA",
-        "fee": 3500
+        "name": "BCA",
+        "fee": 3500,
+        "queue": 8,
+        "status": "OPERATIONAL"
     },
     {
         "code": "bsm",
-        "nama": "Bank Syariah Mandiri",
-        "fee": 3500
+        "name": "Bank Syariah Mandiri",
+        "fee": 3500,
+        "queue": 2,
+        "status": "HEAVILY_DISTURBED"
     },
     {
         "code": "cimb",
-        "nama": "CIMB Niaga",
-        "fee": 3500
+        "name": "CIMB Niaga",
+        "fee": 3500,
+        "queue": 3,
+        "status": "OPERATIONAL"
     },
     {
         "code": "muamalat",
-        "nama": "Muamalat",
-        "fee": 3500
+        "name": "Muamalat",
+        "fee": 3500,
+        "queue": 1,
+        "status": "OPERATIONAL"
     }
 ]
 ```
+
+> Filtered result:
+
+```json
+Status 200
+Content-Type: application/json
+
+[
+    {
+        "bank_code": "bca",
+        "name": "BCA",
+        "fee": 3500,
+        "queue": 8,
+        "status": "OPERATIONAL"
+    }
+]
+```
+
+Attribute | Description
+----------|------------
+bank_code | Flip's bank code. `bni` is the code for both BNI and BNI Syariah, and `cimb` is the code for both CIMB Niaga and CIMB Niaga Syariah
+name | The name of the bank as we usually say it in Indonesian
+fee | The fee that you'll be charged if you send money to this bank
+queue | Current queue for related bank. The longer/higher the queue number, the longer the transaction will be finished.
+status | The status of the disbursement process in related bank. Possible values are: <br><ul><li>`OPERATIONAL`<br>Banks are operational, disbursement will be processed as soon as possible</li><li>`DISTURBED`<br>Banks are slow or have another problem. Disbursement will still be processed, but in slower pace and might be delayed</li><li>`HEAVILY_DISTURBED`<br>Banks are having an error, offline, or another problem that result in a nearly unusable system. Disbursement to this bank can not be processed in a short time, and maybe won't be processed in the same day. You can ask for a refund if this happen.</li></ul>
 
 ## Is Operational
 
@@ -142,7 +185,7 @@ Content-Type: application/x-www-form-urlencoded
 Authorization: basic [your encoded big flip secret key]
 ```
 
-This endpoint will return is currently Flip operational or not. Our operational hour is **09.00-19.00 (WIB/GMT+7) on Monday-Friday**, and **09.00-14.00 (WIB/GMT+7) on Saturday**. Currently we are not operational on Sunday. All transactions made outside those hour will be processed on the next operational hour.
+This endpoint will return information whether Flip currently is operational or not. Our operational hour is **09.00-19.00 (WIB/GMT+7) on Monday-Friday**, and **09.00-14.00 (WIB/GMT+7) on Saturday**. Currently we are not operational on Sunday. All transactions made outside those hour will be processed on the next operational hour.
 
 ### Request
 
@@ -191,7 +234,7 @@ GET /general/maintenance HTTP/1.1
 Content-Type: application/x-www-form-urlencoded
 ```
 
-This endpoint will return is Flip currently on maintenance or not. When Flip is on maintenance, you can't do any request except to this endpoint. Any request to other endpoint will return `401` status code
+This endpoint will return information whether Flip currently is on maintenance or not. When Flip is on maintenance, you can't do any request except to this endpoint. Any request to other endpoint will return `401` status code
 
 ### Request
 
