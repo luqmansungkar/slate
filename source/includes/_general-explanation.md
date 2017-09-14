@@ -25,3 +25,17 @@ Possible value for `outer_code` is:
 *  `VALIDATION_ERROR`, error related to the validation of your payload data.
 
 Possible value for `inner_code` is all the code listed in the [Error Code section](#error-code).
+
+## Supported Banks
+
+Currently, we only support disbursement to these banks:
+
+* BCA or Bank Central Asia
+* BRI or Bank Rakyat Indonesia
+* BNI or Bank Negara Indonesia
+* BNI Syariah
+* Mandiri or Bank Mandiri
+* BSM or Bank Syariah Mandiri
+* Muamalat or Bank Muamalat
+* CIMB or CIMB Niaga
+* CIMB Niaga Syariah
