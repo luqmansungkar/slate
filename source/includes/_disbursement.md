@@ -2,13 +2,15 @@
 
 Valid bank code are:
 
-* `bca`
-* `bri`
-* `bni`
-* `mandiri`
-* `bsm`
-* `muamalat`
-* `cimb`
+* `bca` - Bank Central Asia
+* `bri` - Bank Rakyat Indonesia
+* `bni` - Bank Negara Indonesia & Bank Negara Indonesia Syariah
+* `mandiri` - Bank Mandiri
+* `bsm` - Bank Syariah Mandiri
+* `muamalat` - Bank Muamalat
+* `cimb` - CIMB Niaga & CIMB Niaga Syariah
+
+You can also get this list of bank code along with another information in [get bank code](#get-bank-code)
 
 ## Create Disbursement
 
@@ -71,7 +73,7 @@ Attribute | Description
 ----------|-------------
 account_number | **`string (required)`** <br> The account number of the recipient
 bank_code | **`string (required)`** <br> Bank code of the recipient bank. Accepted value are listed [above](#disbursement)
-amount | **`integer (required)`** <br> The amount of money to be disbursed
+amount | **`integer (required)`** <br> The amount of money to be disbursed (Rp20.000.000 max)
 remark | **`string (required)`** <br> Remark to be included in the transfer made to the recipient. Usually will appear as `berita transfer` or `remark` in the transfer receipt. Max length for this attribute is **18** character
 recipient_city | **`integer (optional)`** <br> City code of the recipient city. This attribute is mandatory only for `bni`, `cimb`, and `bsm`. Available value can be retrieved from [city list](#city-list)
 
