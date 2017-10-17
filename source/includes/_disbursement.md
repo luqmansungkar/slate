@@ -488,7 +488,7 @@ Content-Type: application/x-www-form-urlencoded
 Authorization: Basic [your encoded big flip secret key]
 ```
 
-This endpoint will return the list of available country code along with it's name. The country name will be in Indonesian.
+This endpoint will return the list of available country code along with it's name. The country name will be in English.
 
 
 ### Request
@@ -527,15 +527,15 @@ Status 200
 Content-Type: application/json
 
 {
-    "100000": "Afganistan",
+    "100000": "Afghanistan",
     "100002": "Albania",
-    "100003": "Aljazair",
-    "100004": "Samoa Amerika",
+    "100003": "Algeria/Aljazair",
+    "100004": "America Samoa",
     "100005": "Andorra",
     "100006": "Angola",
     "100007": "Anguilla",
-    "100008": "Antartika",
-    "100009": "Antigua dan Barbuda",
+    "100008": "Antarctica",
+    "100009": "Antigua And Barbuda",
     "100010": "Argentina",
     "100011": "Armenia",
     ...

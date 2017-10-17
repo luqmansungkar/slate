@@ -1,5 +1,9 @@
 # Changelog
 
+### Wednesday, October 18 2017
+
+* Change country list to English
+
 ### Wednesday, September 13 2017
 
 * Add remaining endpoint
