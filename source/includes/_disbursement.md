@@ -1,14 +1,6 @@
 # Disbursement
 
-Valid bank code are:
-
-* `bca` - Bank Central Asia
-* `bri` - Bank Rakyat Indonesia
-* `bni` - Bank Negara Indonesia & Bank Negara Indonesia Syariah
-* `mandiri` - Bank Mandiri
-* `bsm` - Bank Syariah Mandiri
-* `muamalat` - Bank Muamalat
-* `cimb` - CIMB Niaga & CIMB Niaga Syariah
+Valid bank code are listed in [supported banks](#supported-banks) section
 
 You can also get this list of bank code along with another information in [get bank info](#get-bank-info)
 

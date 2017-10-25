@@ -1,5 +1,9 @@
 # Changelog
 
+### Wednesday, October 25 2017
+
+* Add list of newly supported banks
+
 ### Wednesday, October 18 2017
 
 * Change country list to English
