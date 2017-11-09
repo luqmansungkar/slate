@@ -1,5 +1,9 @@
 # Changelog
 
+### Thursday, November 9 2017
+
+* Add idempotency-key header
+
 ### Wednesday, October 25 2017
 
 * Add list of newly supported banks

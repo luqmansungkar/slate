@@ -18,6 +18,7 @@ includes:
   - error-code
   - environment
   - race-condition
+  - idempotent-request
   - disbursement
   - special-disbursement
   - callback

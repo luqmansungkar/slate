@@ -10,6 +10,8 @@ Content-Type: application/x-www-form-urlencoded
 Authorization: Basic [your encoded big flip secret key]
 ```
 
+<aside class="notice">We strongly suggest you to use idempotency key header to prevent accidentally created the same disbursement more than once. Please see more detail on <a href="#idempotent-request">Idempotent Request</a> section</aside>
+
 ### Request
 
 ```php
