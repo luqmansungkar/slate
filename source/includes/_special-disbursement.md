@@ -33,13 +33,13 @@ $payloads = [
     "remark" => "testing",
     "recipient_city" => "391",
     "sender_country" => 100252,
-    "place_of_birth" => 391,
-    "date_of_birth" => "1992-01-01",
+    "sender_place_of_birth" => 391,
+    "sender_date_of_birth" => "1992-01-01",
     "sender_identity_type" => "nat_id",
     "sender_name" => "paijo",
-    "address" => "taman bakokekok di jalan bakokekok 15 no.2 - 230",
+    "sender_address" => "taman bakokekok di jalan bakokekok 15 no.2 - 230",
     "sender_identity_number" => "123456789",
-    "job" => "private_employee",
+    "sender_job" => "private_employee",
     "direction" => "DOMESTIC_SPECIAL_TRANSFER"
 ];
 
@@ -65,15 +65,16 @@ curl https://big.flip.id/api/v2/disbursement \
     -d bank_code="bni" \
     -d amount="10000" \
     -d remark="testing" \
-    -d recipient_city="391"
-    -d place_of_birth => 391,
-    -d date_of_birth => "1992-01-01",
-    -d sender_identity_type => "nat_id",
-    -d sender_name => "paijo",
-    -d address => "taman bakokekok di jalan bakokekok 15 no.2 - 230",
-    -d sender_identity_number => "123456789",
-    -d job => "private_employee",
-    -d direction => "DOMESTIC_SPECIAL_TRANSFER"
+    -d recipient_city="391" \
+    -d sender_country="100252" \
+    -d sender_place_of_birth=391,
+    -d sender_date_of_birth="1992-01-01" \
+    -d sender_identity_type="nat_id" \
+    -d sender_name="paijo" \
+    -d sender_address="taman bakokekok di jalan bakokekok 15 no.2 - 230" \
+    -d sender_identity_number="123456789" \
+    -d sender_job="private_employee" \
+    -d direction="DOMESTIC_SPECIAL_TRANSFER"
 ```
 
 Attribute | Description
@@ -83,13 +84,14 @@ bank_code | **`string (required)`** <br> Bank code of the recipient bank. Accept
 amount | **`integer (required)`** <br> The amount of money to be disbursed (Rp20.000.000 max)
 remark | **`string (required)`** <br> Remark to be included in the transfer made to the recipient. Usually will appear as `berita transfer` or `remark` in the transfer receipt. Max length for this attribute is **18** character
 recipient_city | **`integer (optional)`** <br> City code of the recipient city. This attribute is mandatory only for `bni`, `cimb`, and `bsm`. Available value can be retrieved from [city list](#city-list)
-place_of_birth | **`integer (required)`** <br> City/country code of the sender's place of birth. Use city code if the sender's place of birth is in Indonesia, and country code if outside Indonesia. Available value can be retrieved from [city/country list](#city-and-country-list)
-date_of_birth | **`string/date (required)`** <br> Sender's date of birth with `YYYY-MM-DD` format
+sender_country | **`integer (required)`** <br> Country code of the sender's residence. Available value can be retrieved from [country list](#country-list)
+sender_place_of_birth | **`integer (required)`** <br> City/country code of the sender's place of birth. Use city code if the sender's place of birth is in Indonesia, and country code if outside Indonesia. Available value can be retrieved from [city/country list](#city-and-country-list)
+sender_date_of_birth | **`string/date (required)`** <br> Sender's date of birth with `YYYY-MM-DD` format
 sender_identity_type | **`string (required)`** <br> Sender's ID type. Accepted value are: <br><ul><li>`nat_id`<br>National Id Card or KTP in Indonesia</li><li>`drv_lic`<br>Driving license</li><li>`passport`</li></ul>
 sender_name | **`string (required)`** <br> The name of the user of the Money Transfer Company that act as a sender
-address | **`string (required)`** <br> Sender's address
+sender_address | **`string (required)`** <br> Sender's address
 sender_identity_number | **`string (required)`** <br> Sender's ID number
-job | **`string (required)`** Sender's job. Accepted values are:<br><ul><li>`housewife`</li><li>`entrepreneur`</li><li>`private_employee`</li><li>`government_employee`</li><li>`foundation_board`<br>People who work at foundation as an employee</li><li>`indonesian_migrant_worker`<br>Also known as TKI</li><li>`others`</li></ul>
+sender_job | **`string (required)`** Sender's job. Accepted values are:<br><ul><li>`housewife`</li><li>`entrepreneur`</li><li>`private_employee`</li><li>`government_employee`</li><li>`foundation_board`<br>People who work at foundation as an employee</li><li>`indonesian_migrant_worker`<br>Also known as TKI</li><li>`others`</li></ul>
 direction | **`string (required)`** The direction of the transaction. Accepted values are: <br><ul><li>`DOMESTIC_SPECIAL_TRANSFER`<br>When the sender and the recipient are both residing in Indonesia</li><li>`FOREIGN_INBOUND_SPECIAL_TRANSFER`<br>When the sender are in a foreign country, but the recipient are in Indonesia</li></ul>
 
 ### Response
@@ -118,13 +120,13 @@ Content-Type: application/json
     "direction": "DOMESTIC_SPECIAL_TRANSFER",
     "sender": {
         "sender_name": "John Doe",
-        "place_of_birth": 391,
-        "date_of_birth": "1992-01-31",
-        "address": "taman bakokekok di jalan bakokekok 15 no.2 - 230",
+        "sender_place_of_birth": 391,
+        "sender_date_of_birth": "1992-01-31",
+        "sender_address": "taman bakokekok di jalan bakokekok 15 no.2 - 230",
         "sender_identity_type": "nat_id",
         "sender_identity_number": "asdas213123",
         "sender_country": 100252,
-        "job": "private_employee"
+        "sender_job": "private_employee"
     },
     "fee": 1500
 }

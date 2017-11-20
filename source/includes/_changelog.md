@@ -1,5 +1,9 @@
 # Changelog
 
+### Monday, November 20 2017
+
+* Change sender attribute name for improved readability
+
 ### Thursday, November 9 2017
 
 * Add idempotency-key header
