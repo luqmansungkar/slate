@@ -1,5 +1,9 @@
 # Changelog
 
+### Wednesday, December 6 2017
+
+* Update bank availability info
+
 ### Monday, November 20 2017
 
 * Change sender attribute name for improved readability

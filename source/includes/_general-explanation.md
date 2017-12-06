@@ -64,13 +64,13 @@ Bank Code | Bank Name
 `jawa_timur`|Bank Jatim
 `jambi`|Bank Jambi
 `sumut`|Bank Sumut
-`sumatera_barat`|Bank Sumbar (Bank Nagari)
+`sumatera_barat`|Bank Sumbar (Bank Nagari) **\*temporary unavailable**
 `riau_dan_kepri`|Bank Riau Kepri
 `sumsel_dan_babel`|Bank Sumsel Babel
 `lampung`|Bank Lampung
 `kalimantan_selatan`|Bank Kalsel
 `kalimantan_barat`|Bank Kalbar
-`kalimantan_timur`|Bank Kaltim
+`kalimantan_timur`|Bank Kaltim **\*temporary unavailable**
 `kalimantan_tengah`|Bank Kalteng
 `sulselbar`|Bank Sulselbar
 `sulut`|Bank SulutGo
@@ -90,12 +90,12 @@ Bank Code | Bank Name
 `ganesha`|Bank Ganesha
 `icbc`|ICBC Indonesia
 `qnb_kesawan`|QNB Indonesia
-`btn`|BTN (Bank Tabungan Negara)
+`btn`|BTN (Bank Tabungan Negara) **\*temporary unavailable**
 `woori`|Bank Woori Saudara
 `tabungan_pensiunan_nasional`|BTPN
 `bri_syr`|BRI (Bank Rakyat Indonesia) Syariah
 `bjb_syr`|BJB Syariah
-`mega`|Bank Mega
+`mega`|Bank Mega **\*temporary unavailable**
 `bukopin`|Bukopin
 `jasa_jakarta`|Bank Jasa Jakarta
 `hana`|KEB Hana Bank Indonesia
