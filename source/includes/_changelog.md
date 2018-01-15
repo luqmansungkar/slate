@@ -1,5 +1,9 @@
 # Changelog
 
+### Monday, January 15 2018
+
+* Update idempotency key behavior
+
 ### Wednesday, December 6 2017
 
 * Update bank availability info
