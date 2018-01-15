@@ -12,7 +12,7 @@ We won't process any transaction you've made in the sandbox environment. Any tra
 
 If you doesn't have a Big Flip account yet, or just want to try the API without registering, you can use this sample secret key:
 
-`JDJ5JDEzJExVeFd4RE54M0JZaTZ3UTNhbEJqT3UwcC9Cd3B6SDc4c2NFeGNHZkJtZzRELlZPa1dQQTV1`
+`JDJ5JDEzJGRYZ04zeGtkZkdwRy5NRm82WjM5bi5nV3NxYVByVG9YQnVPSDFaR1JZNDUxSjBHLy5yUUhp`
 
 ### Production
 
