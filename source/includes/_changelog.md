@@ -1,5 +1,9 @@
 # Changelog
 
+### Wednesday, April 18 2018
+
+* Change remark from `required` to `optional`
+
 ### Monday, January 15 2018
 
 * Update idempotency key behavior
