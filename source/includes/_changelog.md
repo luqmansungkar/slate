@@ -1,5 +1,9 @@
 # Changelog
 
+### Monday, May 28 2018
+
+* Add information about changed remark when disbursing to `bri`
+
 ### Wednesday, April 18 2018
 
 * Change remark from `required` to `optional`

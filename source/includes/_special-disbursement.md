@@ -82,7 +82,7 @@ Attribute | Description
 account_number | **`string (required)`** <br> The account number of the recipient
 bank_code | **`string (required)`** <br> Bank code of the recipient bank. Accepted value are listed [above](#disbursement)
 amount | **`integer (required)`** <br> The amount of money to be disbursed (Rp20.000.000 max)
-remark | **`string (optional)`** <br> Remark to be included in the transfer made to the recipient. Usually will appear as `berita transfer` or `remark` in the transfer receipt. Max length for this attribute is **18** character
+remark | **`string (optional)`** <br> Remark to be included in the transfer made to the recipient. Usually will appear as `berita transfer` or `remark` in the transfer receipt. Max length for this attribute is **18** character<br>_Only for disbursement with the bank code being `bri`, the remark will be prepended with the beneficiary name. Example: `tes remark` will be `john doe test remark`_
 recipient_city | **`integer (optional)`** <br> City code of the recipient city. This attribute is mandatory only for `bni`, `cimb`, and `bsm`. Available value can be retrieved from [city list](#city-list)
 sender_country | **`integer (required)`** <br> Country code of the sender's residence. Available value can be retrieved from [country list](#country-list)
 sender_place_of_birth | **`integer (required)`** <br> City/country code of the sender's place of birth. Use city code if the sender's place of birth is in Indonesia, and country code if outside Indonesia. Available value can be retrieved from [city/country list](#city-and-country-list)
