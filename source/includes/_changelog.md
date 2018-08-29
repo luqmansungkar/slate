@@ -1,5 +1,9 @@
 # Changelog
 
+### Wednesday, August 29 2018
+
+* Update bank availability info
+
 ### Monday, May 28 2018
 
 * Add information about changed remark when disbursing to `bri`
