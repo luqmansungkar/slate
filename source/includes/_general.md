@@ -188,7 +188,7 @@ Content-Type: application/x-www-form-urlencoded
 Authorization: basic [your encoded big flip secret key]
 ```
 
-This endpoint will return information whether Flip currently is operational or not. Our operational hour is **09.00-19.00 (WIB/GMT+7) on Monday-Friday**, and **09.00-14.00 (WIB/GMT+7) on Saturday**. Currently we are not operational on Sunday. All transactions made outside those hour will be processed on the next operational hour.
+This endpoint will return information whether Flip currently is operational or not. Our operational hour is **08.00-18.00 (WIB/GMT+7) on Monday-Friday**, and **08.00-13.30 (WIB/GMT+7) on Saturday**. Currently we are not operational on Sunday. All transactions made outside those hour will be processed on the next operational hour.
 
 ### Request
 
