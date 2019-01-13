@@ -1,5 +1,9 @@
 # Changelog
 
+### Sunday, January 13 2018
+* Update operational time
+* Remove information about race condition
+
 ### Wednesday, August 29 2018
 
 * Update bank availability info
