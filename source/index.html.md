@@ -17,7 +17,6 @@ includes:
   - general-response
   - error-code
   - environment
-  - race-condition
   - idempotent-request
   - disbursement
   - special-disbursement
