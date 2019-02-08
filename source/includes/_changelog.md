@@ -1,5 +1,8 @@
 # Changelog
 
+## Friday, February 8 2019
+* Change sample price on `/general/banks` endpoint
+
 ### Sunday, January 13 2018
 * Update operational time
 * Remove information about race condition
