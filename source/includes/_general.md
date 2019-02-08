@@ -165,7 +165,7 @@ Content-Type: application/json
     {
         "bank_code": "bca",
         "name": "BCA",
-        "fee": 3500,
+        "fee": 5000,
         "queue": 8,
         "status": "OPERATIONAL"
     }
