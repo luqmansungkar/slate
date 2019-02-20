@@ -1,5 +1,8 @@
 # Changelog
 
+## Wednesday, February 20 2019
+* Change `WRONG_ACCOUNT_NUMBER` to `CANCELLED` in sandbox env description
+
 ## Friday, February 8 2019
 * Change sample price on `/general/banks` endpoint
 

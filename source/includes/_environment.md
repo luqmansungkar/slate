@@ -8,7 +8,7 @@ The sandbox environment is completely separated from the production environment,
 
 **The secret key and the validation token in sandbox will be different with the production environment.**
 
-We won't process any transaction you've made in the sandbox environment. Any transaction created will be left at `PENDING` status. However, you can ask us to manually trigger the transaction to simulate `DONE` or `WRONG_ACCOUNT_NUMBER` status. You can tell us via the in browser chat feature or email me at luqman@flip.id and give us the transaction id you want to trigger.
+We won't process any transaction you've made in the sandbox environment. Any transaction created will be left at `PENDING` status. However, you can ask us to manually trigger the transaction to simulate `DONE` or `CANCELLED` status. You can tell us via the in browser chat feature or email me at luqman@flip.id and give us the transaction id you want to trigger.
 
 If you doesn't have a Big Flip account yet, or just want to try the API without registering, you can use this sample secret key:
 
