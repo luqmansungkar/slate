@@ -20,7 +20,7 @@ Authorization: Basic [your encoded big flip secret key]
 $ch = curl_init();
 $secret_key = "wwwwwwwxxxxxxxaaaaaaabbbbbbbbbcccccdddd";
 
-curl_setopt($ch, CURLOPT_URL, "https://big.flip.id/api/v2/disbursement");
+curl_setopt($ch, CURLOPT_URL, "https://big.flip.id/api/v2/special-disbursement");
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 curl_setopt($ch, CURLOPT_HEADER, FALSE);
 
@@ -58,7 +58,7 @@ var_dump($response);
 ```
 
 ```shell
-curl https://big.flip.id/api/v2/disbursement \
+curl https://big.flip.id/api/v2/special-disbursement \
     -X POST \
     -u <secret_key>: \
     -d account_number="0437051936" \

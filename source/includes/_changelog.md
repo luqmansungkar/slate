@@ -1,5 +1,8 @@
 # Changelog
 
+## Wednesday, May 5 2019
+* Fix special disbursement url in sample code
+
 ## Wednesday, February 20 2019
 * Change `WRONG_ACCOUNT_NUMBER` to `CANCELLED` in sandbox env description
 
