@@ -116,3 +116,6 @@ Bank Code | Bank Name
 `agris`|Bank Agris
 `chinatrust`|CTBC (Chinatrust) Indonesia
 `commonwealth`|Commonwealth Bank
+`ovo`|OVO
+`dana`|Dana
+`doku`|Doku

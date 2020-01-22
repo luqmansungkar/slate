@@ -1,5 +1,8 @@
 # Changelog
 
+## Wednesday, Jan 22 2020
+* Add OVO, Dana, and Doku as a bank code
+
 ## Wednesday, May 5 2019
 * Fix special disbursement url in sample code
 
