@@ -1,0 +1,2257 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="icon" sizes="192x192" href='images/favicon.png'>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Big Flip API V2</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .cd {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all.js"></script>
+  </head>
+
+  <body class="index" data-languages="[&quot;php&quot;,&quot;shell&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <img src="images/logo.png" alt="Logo" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="php">PHP</a>
+              <a href="#" data-language-name="shell">Shell</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc">
+      </div>
+        <ul class="toc-footer">
+            <li><a target="_blank" href='https://flip.id/site/signup-big'>Sign Up for a Big Flip Account</a></li>
+            <li><a target="_blank" href='https://big.flip.id/api-info'>Big Flip API Dashboard</a></li>
+            <li><a target="_blank" href='https://sandbox.flip.id/api-info'>Sandbox Dashboard</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        
+          <h1 id="introduction">Introduction</h1>
+
+<aside class="notice">This is the continuation of the previous <a target="_blank" href="http://docs.bigflipv1.apiary.io/" >Big Flip API v1</a>. 
+If you&rsquo;re looking for the v1 documentation, you can <a target="_blank" href="http://docs.bigflipv1.apiary.io/" >click here</a>.
+<br>In this version, we focused on translating the language of the API to English. We also added several new API endpoints that only exist in v2. Starting from this version, we will try to only make new endpoints in English.<br><br>
+</aside>
+
+<p>Welcome to Big Flip v2 API. Flip will help you in doing task related to sending your money, so you can focus on creating a better product.</p>
+
+<p>This documentation will be updated everytime there is a change or if there is a new endpoint introduced. Every change will be documented in the <a href="#changelog">changelog section</a>.</p>
+
+<p>I try to make this API and documentation to be as easy as possible and pleasing for the developer trying to implement this API. So if you have a suggestion or correction, feel free to send me an email at <a href="mailto:luqman@flip.id">luqman@flip.id</a></p>
+
+          <h2 id="general-explanation">General Explanation</h2>
+
+<p>To know if the request is success or failed, you can see the <code class="prettyprint">HTTP Status Code</code> on each response. <a href="http://www.restapitutorial.com/httpstatuscodes.html">#</a></p>
+
+<p>Every request should be sent as <code class="prettyprint">application/x-www-form-urlencoded</code> unless told differently. The body of the request must be sent as post data (e.g <code class="prettyprint">attribute=value&amp;attribute2=value2&amp;attribute3=value3</code>).</p>
+
+<p><strong>422</strong> status code is used to indicate the mistake from your side. The common response for this status code is like on the right side:</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">outer_code</span><span class="p">],</span><span class="w">
+    </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"attribute"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[attribute]"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">inner_code</span><span class="p">],</span><span class="w">
+            </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[message]"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Possible value for <code class="prettyprint">outer_code</code> is:</p>
+
+<ul>
+<li><code class="prettyprint">BALANCE_INSUFFICIENT</code>, happen when your Flip account balance are insufficient for the current transaction (balance &lt; (transfer amount + transfer fee)).</li>
+<li> <code class="prettyprint">VALIDATION_ERROR</code>, error related to the validation of your payload data.</li>
+</ul>
+
+<p>Possible value for <code class="prettyprint">inner_code</code> is all the code listed in the <a href="#error-code">Error Code section</a>.</p>
+
+<h2 id="supported-banks">Supported Banks</h2>
+
+<p>Currently, we only support disbursement to these banks:</p>
+
+<table><thead>
+<tr>
+<th>Bank Code</th>
+<th>Bank Name</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">mandiri</code></td>
+<td>Bank Mandiri</td>
+</tr>
+<tr>
+<td><code class="prettyprint">bri</code></td>
+<td>Bank Rakyat Indonesia</td>
+</tr>
+<tr>
+<td><code class="prettyprint">bni</code></td>
+<td>BNI (Bank Negara Indonesia) &amp; BNI Syariah</td>
+</tr>
+<tr>
+<td><code class="prettyprint">bca</code></td>
+<td>Bank Central Asia</td>
+</tr>
+<tr>
+<td><code class="prettyprint">bsm</code></td>
+<td>Bank Syariah Mandiri</td>
+</tr>
+<tr>
+<td><code class="prettyprint">cimb</code></td>
+<td>CIMB Niaga &amp; CIMB Niaga Syariah</td>
+</tr>
+<tr>
+<td><code class="prettyprint">muamalat</code></td>
+<td>Muamalat</td>
+</tr>
+<tr>
+<td><code class="prettyprint">danamon</code></td>
+<td>Bank Danamon</td>
+</tr>
+<tr>
+<td><code class="prettyprint">permata</code></td>
+<td>Bank Permata</td>
+</tr>
+<tr>
+<td><code class="prettyprint">bii</code></td>
+<td>Maybank Indonesia</td>
+</tr>
+<tr>
+<td><code class="prettyprint">panin</code></td>
+<td>Panin Bank</td>
+</tr>
+<tr>
+<td><code class="prettyprint">uob</code></td>
+<td>UOB Indonesia</td>
+</tr>
+<tr>
+<td><code class="prettyprint">ocbc</code></td>
+<td>OCBC NISP</td>
+</tr>
+<tr>
+<td><code class="prettyprint">citibank</code></td>
+<td>Citibank</td>
+</tr>
+<tr>
+<td><code class="prettyprint">artha</code></td>
+<td>Bank Artha Graha Internasional</td>
+</tr>
+<tr>
+<td><code class="prettyprint">tokyo</code></td>
+<td>Bank of Tokyo Mitsubishi UFJ</td>
+</tr>
+<tr>
+<td><code class="prettyprint">dbs</code></td>
+<td>DBS Indonesia</td>
+</tr>
+<tr>
+<td><code class="prettyprint">standard_chartered</code></td>
+<td>Standard Chartered Bank</td>
+</tr>
+<tr>
+<td><code class="prettyprint">capital</code></td>
+<td>Bank Capital Indonesia</td>
+</tr>
+<tr>
+<td><code class="prettyprint">anz</code></td>
+<td>ANZ Indonesia</td>
+</tr>
+<tr>
+<td><code class="prettyprint">boc</code></td>
+<td>Bank of China (Hong Kong) Limited</td>
+</tr>
+<tr>
+<td><code class="prettyprint">bumi_arta</code></td>
+<td>Bank Bumi Arta</td>
+</tr>
+<tr>
+<td><code class="prettyprint">hsbc</code></td>
+<td>HSBC Indonesia</td>
+</tr>
+<tr>
+<td><code class="prettyprint">rabobank</code></td>
+<td>Rabobank International Indonesia</td>
+</tr>
+<tr>
+<td><code class="prettyprint">mayapada</code></td>
+<td>Bank Mayapada</td>
+</tr>
+<tr>
+<td><code class="prettyprint">bjb</code></td>
+<td>BJB</td>
+</tr>
+<tr>
+<td><code class="prettyprint">dki</code></td>
+<td>Bank DKI Jakarta</td>
+</tr>
+<tr>
+<td><code class="prettyprint">daerah_istimewa</code></td>
+<td>BPD DIY</td>
+</tr>
+<tr>
+<td><code class="prettyprint">jawa_tengah</code></td>
+<td>Bank Jateng</td>
+</tr>
+<tr>
+<td><code class="prettyprint">jawa_timur</code></td>
+<td>Bank Jatim</td>
+</tr>
+<tr>
+<td><code class="prettyprint">jambi</code></td>
+<td>Bank Jambi</td>
+</tr>
+<tr>
+<td><code class="prettyprint">sumut</code></td>
+<td>Bank Sumut</td>
+</tr>
+<tr>
+<td><code class="prettyprint">sumatera_barat</code></td>
+<td>Bank Sumbar (Bank Nagari)</td>
+</tr>
+<tr>
+<td><code class="prettyprint">riau_dan_kepri</code></td>
+<td>Bank Riau Kepri</td>
+</tr>
+<tr>
+<td><code class="prettyprint">sumsel_dan_babel</code></td>
+<td>Bank Sumsel Babel</td>
+</tr>
+<tr>
+<td><code class="prettyprint">lampung</code></td>
+<td>Bank Lampung</td>
+</tr>
+<tr>
+<td><code class="prettyprint">kalimantan_selatan</code></td>
+<td>Bank Kalsel</td>
+</tr>
+<tr>
+<td><code class="prettyprint">kalimantan_barat</code></td>
+<td>Bank Kalbar</td>
+</tr>
+<tr>
+<td><code class="prettyprint">kalimantan_timur</code></td>
+<td>Bank Kaltim</td>
+</tr>
+<tr>
+<td><code class="prettyprint">kalimantan_tengah</code></td>
+<td>Bank Kalteng</td>
+</tr>
+<tr>
+<td><code class="prettyprint">sulselbar</code></td>
+<td>Bank Sulselbar</td>
+</tr>
+<tr>
+<td><code class="prettyprint">sulut</code></td>
+<td>Bank SulutGo</td>
+</tr>
+<tr>
+<td><code class="prettyprint">nusa_tenggara_barat</code></td>
+<td>Bank NTB</td>
+</tr>
+<tr>
+<td><code class="prettyprint">bali</code></td>
+<td>BPD Bali</td>
+</tr>
+<tr>
+<td><code class="prettyprint">nusa_tenggara_timur</code></td>
+<td>Bank NTT</td>
+</tr>
+<tr>
+<td><code class="prettyprint">maluku</code></td>
+<td>Bank Maluku</td>
+</tr>
+<tr>
+<td><code class="prettyprint">papua</code></td>
+<td>Bank Papua</td>
+</tr>
+<tr>
+<td><code class="prettyprint">bengkulu</code></td>
+<td>Bank Bengkulu</td>
+</tr>
+<tr>
+<td><code class="prettyprint">sulawesi</code></td>
+<td>Bank Sulteng</td>
+</tr>
+<tr>
+<td><code class="prettyprint">sulawesi_tenggara</code></td>
+<td>Bank Sultra</td>
+</tr>
+<tr>
+<td><code class="prettyprint">nusantara_parahyangan</code></td>
+<td>Bank Nusantara Parahyangan</td>
+</tr>
+<tr>
+<td><code class="prettyprint">india</code></td>
+<td>Bank of India Indonesia</td>
+</tr>
+<tr>
+<td><code class="prettyprint">mestika_dharma</code></td>
+<td>Bank Mestika Dharma</td>
+</tr>
+<tr>
+<td><code class="prettyprint">sinarmas</code></td>
+<td>Bank Sinarmas</td>
+</tr>
+<tr>
+<td><code class="prettyprint">maspion</code></td>
+<td>Bank Maspion Indonesia</td>
+</tr>
+<tr>
+<td><code class="prettyprint">ganesha</code></td>
+<td>Bank Ganesha</td>
+</tr>
+<tr>
+<td><code class="prettyprint">icbc</code></td>
+<td>ICBC Indonesia</td>
+</tr>
+<tr>
+<td><code class="prettyprint">qnb_kesawan</code></td>
+<td>QNB Indonesia</td>
+</tr>
+<tr>
+<td><code class="prettyprint">btn</code></td>
+<td>BTN (Bank Tabungan Negara)</td>
+</tr>
+<tr>
+<td><code class="prettyprint">woori</code></td>
+<td>Bank Woori Saudara</td>
+</tr>
+<tr>
+<td><code class="prettyprint">tabungan_pensiunan_nasional</code></td>
+<td>BTPN</td>
+</tr>
+<tr>
+<td><code class="prettyprint">bri_syr</code></td>
+<td>BRI (Bank Rakyat Indonesia) Syariah</td>
+</tr>
+<tr>
+<td><code class="prettyprint">bjb_syr</code></td>
+<td>BJB Syariah</td>
+</tr>
+<tr>
+<td><code class="prettyprint">mega</code></td>
+<td>Bank Mega</td>
+</tr>
+<tr>
+<td><code class="prettyprint">bukopin</code></td>
+<td>Bukopin</td>
+</tr>
+<tr>
+<td><code class="prettyprint">jasa_jakarta</code></td>
+<td>Bank Jasa Jakarta</td>
+</tr>
+<tr>
+<td><code class="prettyprint">hana</code></td>
+<td>KEB Hana Bank Indonesia</td>
+</tr>
+<tr>
+<td><code class="prettyprint">mnc_internasional</code></td>
+<td>Bank MNC Internasional</td>
+</tr>
+<tr>
+<td><code class="prettyprint">agroniaga</code></td>
+<td>BRI Agroniaga</td>
+</tr>
+<tr>
+<td><code class="prettyprint">sbi_indonesia</code></td>
+<td>SBI Indonesia</td>
+</tr>
+<tr>
+<td><code class="prettyprint">royal</code></td>
+<td>Bank Royal Indonesia</td>
+</tr>
+<tr>
+<td><code class="prettyprint">nationalnobu</code></td>
+<td>Nobu (Nationalnobu) Bank</td>
+</tr>
+<tr>
+<td><code class="prettyprint">mega_syr</code></td>
+<td>Bank Mega Syariah</td>
+</tr>
+<tr>
+<td><code class="prettyprint">ina_perdana</code></td>
+<td>Bank Ina Perdana</td>
+</tr>
+<tr>
+<td><code class="prettyprint">sahabat_sampoerna</code></td>
+<td>Bank Sahabat Sampoerna</td>
+</tr>
+<tr>
+<td><code class="prettyprint">kesejahteraan_ekonomi</code></td>
+<td>Bank Kesejahteraan Ekonomi</td>
+</tr>
+<tr>
+<td><code class="prettyprint">bca_syr</code></td>
+<td>BCA (Bank Central Asia) Syariah</td>
+</tr>
+<tr>
+<td><code class="prettyprint">artos</code></td>
+<td>Bank Artos Indonesia</td>
+</tr>
+<tr>
+<td><code class="prettyprint">mayora</code></td>
+<td>Bank Mayora Indonesia</td>
+</tr>
+<tr>
+<td><code class="prettyprint">index_selindo</code></td>
+<td>Bank Index Selindo</td>
+</tr>
+<tr>
+<td><code class="prettyprint">victoria_internasional</code></td>
+<td>Bank Victoria International</td>
+</tr>
+<tr>
+<td><code class="prettyprint">agris</code></td>
+<td>Bank Agris</td>
+</tr>
+<tr>
+<td><code class="prettyprint">chinatrust</code></td>
+<td>CTBC (Chinatrust) Indonesia</td>
+</tr>
+<tr>
+<td><code class="prettyprint">commonwealth</code></td>
+<td>Commonwealth Bank</td>
+</tr>
+<tr>
+<td><code class="prettyprint">ovo</code></td>
+<td>OVO</td>
+</tr>
+<tr>
+<td><code class="prettyprint">dana</code></td>
+<td>Dana</td>
+</tr>
+<tr>
+<td><code class="prettyprint">doku</code></td>
+<td>Doku</td>
+</tr>
+</tbody></table>
+
+          <h2 id="authentication">Authentication</h2>
+<pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$secret_key</span> <span class="o">=</span> <span class="s2">"wwwwwwwxxxxxxxaaaaaaabbbbbbbbbcccccdddd"</span><span class="p">;</span>
+
+<span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="nx">CURLOPT_USERPWD</span><span class="p">,</span> <span class="nv">$secret_key</span><span class="o">.</span><span class="s2">":"</span><span class="p">);</span>
+</code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span> 
+<span class="nv">$secret_key</span> <span class="o">=</span> <span class="s2">"wwwwwwwxxxxxxxaaaaaaabbbbbbbbbcccccdddd"</span><span class="p">;</span>
+<span class="nv">$encoded_auth</span> <span class="o">=</span> <span class="nb">base64_encode</span><span class="p">(</span><span class="nv">$secret_key</span><span class="o">.</span><span class="s2">":"</span><span class="p">);</span>
+
+<span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="nx">CURLOPT_HTTPHEADER</span><span class="p">,</span> <span class="p">[</span><span class="s2">"Authorization: Basic "</span><span class="o">.</span><span class="nv">$encoded_auth</span><span class="p">]);</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl --user &lt;wwwwwwwxxxxxxxaaaaaaabbbbbbbbbcccccdddd&gt;: https://big.flip.id/api/v2/disbursement
+</code></pre>
+<p>We are using <strong>Basic Authentication</strong> by including <code class="prettyprint">Authorization</code> header in each of your request. Value of the header is the provided Secret Key from your <a href="https://big.flip.id/api-info" target="_blank">Big Flip dashboard</a>. You should include your secret key like a usual basic auth request, and use the secret key as the username:</p>
+
+<p><code class="prettyprint">Authorization: Basic [base64encode(&lt;secret_key&gt;+&quot;:&quot;)]</code></p>
+
+<p>You can also see another example of how to include the secret key on the right column.</p>
+
+          <h2 id="general-response">General Response</h2>
+
+<h3 id="unauthorized">Unauthorized</h3>
+<pre class="highlight json tab-json"><code><span class="err">Status</span><span class="w"> </span><span class="mi">401</span><span class="w">
+</span><span class="err">Content-Type</span><span class="p">:</span><span class="w"> </span><span class="err">application/json</span><span class="w">
+
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unauthorized"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You are requesting with an invalid credential."</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">401</span><span class="p">,</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This response will be sent if the value of Authorization heder or the secret key is invalid.</p>
+
+<h3 id="not-found">Not Found</h3>
+<pre class="highlight json tab-json"><code><span class="err">Status</span><span class="w"> </span><span class="mi">404</span><span class="w">
+</span><span class="err">Content-Type</span><span class="p">:</span><span class="w"> </span><span class="err">application/json</span><span class="w">
+
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Not Found"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Page not found."</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">404</span><span class="p">,</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>You will get this response if the url you&rsquo;re trying to access is wrong, or if the resource you&rsquo;re trying to access is not exist.</p>
+
+          <h2 id="error-code">Error Code</h2>
+
+<p>As mentioned above, validation error or response with status code <code class="prettyprint">422</code> will contain inner code. Here is the list of the code:</p>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>999</td>
+<td>Undefined error. Or maybe we just missed to give the error a proper error code. Please contact us if this happen.</td>
+</tr>
+<tr>
+<td>1001</td>
+<td>The related attribute should not be empty</td>
+</tr>
+<tr>
+<td>1002</td>
+<td>Value for the related attribute is considered not clean. Things that considered as not clean is html tag and <code class="prettyprint">?</code>, <code class="prettyprint">#</code>, <code class="prettyprint">$</code>, <code class="prettyprint">&#39;</code> (single quote), <code class="prettyprint">&quot;</code> (double quote), and <code class="prettyprint">;</code> character</td>
+</tr>
+<tr>
+<td>1020</td>
+<td>The related attribute can only contain number</td>
+</tr>
+<tr>
+<td>1021</td>
+<td>Transfer amount are less than the minimum amount (Rp10.000)</td>
+</tr>
+<tr>
+<td>1022</td>
+<td>Transfer amount are more than the maximum amount (Rp20.000.000)</td>
+</tr>
+<tr>
+<td>1024</td>
+<td>Max char for the related attribute exceeded</td>
+</tr>
+<tr>
+<td>1025</td>
+<td>Invalid bank account number or possibly a virtual account number</td>
+</tr>
+<tr>
+<td>1026</td>
+<td>The recipient bank account is suspected with fraud. You can&rsquo;t send money to this account</td>
+</tr>
+<tr>
+<td>1032</td>
+<td>Pagination should be a number more than 0</td>
+</tr>
+<tr>
+<td>1033</td>
+<td>Invalid bank code</td>
+</tr>
+<tr>
+<td>1035</td>
+<td>Insufficient Big Flip balance</td>
+</tr>
+<tr>
+<td>1037</td>
+<td>Country code is not valid. Available country code is in <a href="#country-list">country code endpoint</a></td>
+</tr>
+<tr>
+<td>1038</td>
+<td>Country/city code is not valid. The difference with <code class="prettyprint">1037</code> code is <code class="prettyprint">1037</code> will occur if the attribute only allow country code while this code will occure if the attribute allow country or city code.</td>
+</tr>
+<tr>
+<td>1039</td>
+<td>Date format is not valid according to the requested format</td>
+</tr>
+<tr>
+<td>1040</td>
+<td>Date is not valid (e.g Feb 29 when not in leap year, future date, etc)</td>
+</tr>
+<tr>
+<td>1041</td>
+<td>The related attribute value is out of the allowed value</td>
+</tr>
+</tbody></table>
+
+          <h2 id="environment">Environment</h2>
+
+<h3 id="sandbox">Sandbox</h3>
+
+<p>We provide a sandbox/testing environment for you. The base URL for the sandbox is <a href="https://sandbox.flip.id/api/v2/">https://sandbox.flip.id/api/v2/</a>.</p>
+
+<p>The sandbox environment is completely separated from the production environment, so whatever you&rsquo;ll do in sandbox will not affect your Big Flip account. Each sandbox account will be given Rp50.000.000 balance for you to test the API.</p>
+
+<p><strong>The secret key and the validation token in sandbox will be different with the production environment.</strong></p>
+
+<p>We won&rsquo;t process any transaction you&rsquo;ve made in the sandbox environment. Any transaction created will be left at <code class="prettyprint">PENDING</code> status. However, you can ask us to manually trigger the transaction to simulate <code class="prettyprint">DONE</code> or <code class="prettyprint">CANCELLED</code> status. You can tell us via the in browser chat feature or email me at luqman@flip.id and give us the transaction id you want to trigger.</p>
+
+<p>If you doesn&rsquo;t have a Big Flip account yet, or just want to try the API without registering, you can use this sample secret key:</p>
+
+<p><code class="prettyprint">JDJ5JDEzJGRYZ04zeGtkZkdwRy5NRm82WjM5bi5nV3NxYVByVG9YQnVPSDFaR1JZNDUxSjBHLy5yUUhp</code></p>
+
+<h3 id="production">Production</h3>
+
+<p>The production environment base url is <a href="https://big.flip.id/api/v2/">https://big.flip.id/api/v2/</a>. Every transaction made through this url will be processed (except if something goes wrong).</p>
+
+<aside class="warning">You are fully responsible to the safety of your secret key and validation token in your application. Negligence in storing those information can result in unauthorized use of your balance.<br><br>
+If you suspect those information have been leaked, you can change it in your <a href="https://big.flip.id/api-info" target="_blank">Big Flip dashboard</a>.
+</aside>
+
+<aside class="notice">The changing of the secret key and/or validation token will result in unusable old key and/or token</aside>
+
+          <h2 id="idempotent-request">Idempotent Request</h2>
+<pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+<span class="nv">$secret_key</span> <span class="o">=</span> <span class="s2">"wwwwwwwxxxxxxxaaaaaaabbbbbbbbbcccccdddd"</span><span class="p">;</span>
+
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="s2">"https://big.flip.id/api/v2/disbursement"</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="k">TRUE</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HEADER</span><span class="p">,</span> <span class="k">FALSE</span><span class="p">);</span>
+
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_POST</span><span class="p">,</span> <span class="k">TRUE</span><span class="p">);</span>
+
+<span class="nv">$payloads</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">"account_number"</span> <span class="o">=&gt;</span> <span class="s2">"0437051936"</span><span class="p">,</span>
+    <span class="s2">"bank_code"</span> <span class="o">=&gt;</span> <span class="s2">"bni"</span><span class="p">,</span>
+    <span class="s2">"amount"</span> <span class="o">=&gt;</span> <span class="s2">"10000"</span><span class="p">,</span>
+    <span class="s2">"remark"</span> <span class="o">=&gt;</span> <span class="s2">"testing"</span><span class="p">,</span>
+    <span class="s2">"recipient_city"</span> <span class="o">=&gt;</span> <span class="s2">"391"</span>
+<span class="p">];</span>
+
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_POSTFIELDS</span><span class="p">,</span> <span class="nb">http_build_query</span><span class="p">(</span><span class="nv">$payloads</span><span class="p">));</span>
+
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HTTPHEADER</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+  <span class="s2">"Content-Type: application/x-www-form-urlencoded"</span><span class="p">,</span>
+  <span class="s2">"idempotency-key: 8anU9saqIU798wOo"</span>
+<span class="p">));</span>
+
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_USERPWD</span><span class="p">,</span> <span class="nv">$secret_key</span><span class="o">.</span><span class="s2">":"</span><span class="p">);</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+
+<span class="nb">var_dump</span><span class="p">(</span><span class="nv">$response</span><span class="p">);</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl https://big.flip.id/api/v2/disbursement <span class="se">\</span>
+    -X POST <span class="se">\</span>
+    -u &lt;secret_key&gt;: <span class="se">\</span>
+    -H <span class="s2">"idempotency-key: 8anU9saqIU798wOo"</span> <span class="se">\</span>
+    -d <span class="nv">account_number</span><span class="o">=</span><span class="s2">"0437051936"</span> <span class="se">\</span>
+    -d <span class="nv">bank_code</span><span class="o">=</span><span class="s2">"bni"</span> <span class="se">\</span>
+    -d <span class="nv">amount</span><span class="o">=</span><span class="s2">"10000"</span> <span class="se">\</span>
+    -d <span class="nv">remark</span><span class="o">=</span><span class="s2">"testing"</span> <span class="se">\</span>
+    -d <span class="nv">recipient_city</span><span class="o">=</span><span class="s2">"391"</span>
+</code></pre>
+<p>This version of API supports <a href="http://restcookbook.com/HTTP%20Methods/idempotency/">idempotency</a>, so you can safely retrying request without accidentally performing the same operation twice. If you send a <a href="#create-disbursement">create a disbursement</a> and the request fails due to network error or other factor, you can safely retry the request with the same idempotency key and be sure that only a single disbursement is created.</p>
+
+<p>To perform an idempotent request, you can just provide an additonal <code class="prettyprint">idempotency-key</code> header to your request.</p>
+
+<p>You can provide any unique string to be the idempotency key, such as the transaction id on your side, or another random and unique identifier from your side. The string however, will be limited to 255 char in length. </p>
+
+<p>This idempotency key will be stored forever if the related transacition success. <strong>However, if the transaction is cancelled because of wrong account number or other reasons, the idempotency key will be deleted and you can use the same key to retry the transaction.</strong> We&rsquo;ll always send back the same response for request made with the same key.</p>
+
+          <h1 id="disbursement">Disbursement</h1>
+
+<p>Valid bank code are listed in <a href="#supported-banks">supported banks</a> section</p>
+
+<p>You can also get this list of bank code along with another information in <a href="#get-bank-info">get bank info</a></p>
+
+<h2 id="create-disbursement">Create Disbursement</h2>
+<pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/disbursement</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic [your encoded big flip secret key]</span>
+</code></pre>
+<aside class="notice">We strongly suggest you to use idempotency key header to prevent accidentally created the same disbursement more than once. Please see more detail on <a href="#idempotent-request">Idempotent Request</a> section</aside>
+
+<p>Use this endpoint to create a common disbursement transaction. For company operating as a Money Transfer Company (Perusahaan Transfer Dana), or anything related to that, please use <a href="#create-special-disbursement">Create Special Disbursement</a> endpoint instead.</p>
+
+<h3 id="request">Request</h3>
+<pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+<span class="nv">$secret_key</span> <span class="o">=</span> <span class="s2">"wwwwwwwxxxxxxxaaaaaaabbbbbbbbbcccccdddd"</span><span class="p">;</span>
+
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="s2">"https://big.flip.id/api/v2/disbursement"</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="k">TRUE</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HEADER</span><span class="p">,</span> <span class="k">FALSE</span><span class="p">);</span>
+
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_POST</span><span class="p">,</span> <span class="k">TRUE</span><span class="p">);</span>
+
+<span class="nv">$payloads</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">"account_number"</span> <span class="o">=&gt;</span> <span class="s2">"0437051936"</span><span class="p">,</span>
+    <span class="s2">"bank_code"</span> <span class="o">=&gt;</span> <span class="s2">"bni"</span><span class="p">,</span>
+    <span class="s2">"amount"</span> <span class="o">=&gt;</span> <span class="s2">"10000"</span><span class="p">,</span>
+    <span class="s2">"remark"</span> <span class="o">=&gt;</span> <span class="s2">"testing"</span><span class="p">,</span>
+    <span class="s2">"recipient_city"</span> <span class="o">=&gt;</span> <span class="s2">"391"</span>
+<span class="p">];</span>
+
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_POSTFIELDS</span><span class="p">,</span> <span class="nb">http_build_query</span><span class="p">(</span><span class="nv">$payloads</span><span class="p">));</span>
+
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HTTPHEADER</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+  <span class="s2">"Content-Type: application/x-www-form-urlencoded"</span>
+<span class="p">));</span>
+
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_USERPWD</span><span class="p">,</span> <span class="nv">$secret_key</span><span class="o">.</span><span class="s2">":"</span><span class="p">);</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+
+<span class="nb">var_dump</span><span class="p">(</span><span class="nv">$response</span><span class="p">);</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl https://big.flip.id/api/v2/disbursement <span class="se">\</span>
+    -X POST <span class="se">\</span>
+    -u &lt;secret_key&gt;: <span class="se">\</span>
+    -d <span class="nv">account_number</span><span class="o">=</span><span class="s2">"0437051936"</span> <span class="se">\</span>
+    -d <span class="nv">bank_code</span><span class="o">=</span><span class="s2">"bni"</span> <span class="se">\</span>
+    -d <span class="nv">amount</span><span class="o">=</span><span class="s2">"10000"</span> <span class="se">\</span>
+    -d <span class="nv">remark</span><span class="o">=</span><span class="s2">"testing"</span> <span class="se">\</span>
+    -d <span class="nv">recipient_city</span><span class="o">=</span><span class="s2">"391"</span>
+</code></pre>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>account_number</td>
+<td><strong><code class="prettyprint">string (required)</code></strong> <br> The account number of the recipient</td>
+</tr>
+<tr>
+<td>bank_code</td>
+<td><strong><code class="prettyprint">string (required)</code></strong> <br> Bank code of the recipient bank. Accepted value are listed <a href="#disbursement">above</a></td>
+</tr>
+<tr>
+<td>amount</td>
+<td><strong><code class="prettyprint">integer (required)</code></strong> <br> The amount of money to be disbursed (Rp20.000.000 max)</td>
+</tr>
+<tr>
+<td>remark</td>
+<td><strong><code class="prettyprint">string (optional)</code></strong> <br> Remark to be included in the transfer made to the recipient. Usually will appear as <code class="prettyprint">berita transfer</code> or <code class="prettyprint">remark</code> in the transfer receipt. Max length for this attribute is <strong>18</strong> character<br><em>Only for disbursement with the bank code being <code class="prettyprint">bri</code>, the remark will be prepended with the beneficiary name. Example: <code class="prettyprint">tes remark</code> will be <code class="prettyprint">john doe test remark</code></em></td>
+</tr>
+<tr>
+<td>recipient_city</td>
+<td><strong><code class="prettyprint">integer (optional)</code></strong> <br> City code of the recipient city. This attribute is mandatory only for <code class="prettyprint">bni</code>, <code class="prettyprint">cimb</code>, and <code class="prettyprint">bsm</code>. Available value can be retrieved from <a href="#city-list">city list</a></td>
+</tr>
+</tbody></table>
+
+<h3 id="response">Response</h3>
+<pre class="highlight json tab-json"><code><span class="err">Status</span><span class="w"> </span><span class="mi">200</span><span class="w">
+</span><span class="err">Content-Type</span><span class="p">:</span><span class="w"> </span><span class="err">application/json</span><span class="w">
+
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">790</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PENDING"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-28 14:32:47"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"bank_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bni"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"account_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0437051936"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"recipient_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"- FLIPTECH LENTERA INSPIRASI P"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sender_bank"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bri"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"remark"</span><span class="p">:</span><span class="w"> </span><span class="s2">"testing"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"receipt"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"time_served"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000-00-00 00:00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"bundle_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"company_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"recipient_city"</span><span class="p">:</span><span class="w"> </span><span class="mi">391</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"API"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"direction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DOMESTIC_TRANSFER"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sender"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">1500</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>See detailed explanation at <a href="#get-all-disbursement">get all disbursement</a> response.</p>
+
+<h2 id="get-all-disbursement">Get All Disbursement</h2>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/disbursement</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic [your encoded big flip secret key]</span>
+</code></pre>
+<p>Use this endpoint to get the list of transaction you&rsquo;ve made. By default, the result will be paginated by 20. You can change the pagination, filter, and sort the result by changing the url parameter.</p>
+
+<h3 id="request">Request</h3>
+<pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+<span class="nv">$secret_key</span> <span class="o">=</span> <span class="s2">"wwwwwwwxxxxxxxaaaaaaabbbbbbbbbcccccdddd"</span><span class="p">;</span>
+
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="s2">"https://big.flip.id/api/v2/disbursement?pagination=pagination&amp;page=page&amp;sort=sort&amp;atribut=value"</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="k">TRUE</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HEADER</span><span class="p">,</span> <span class="k">FALSE</span><span class="p">);</span>
+
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HTTPHEADER</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+  <span class="s2">"Content-Type: application/x-www-form-urlencoded"</span>
+<span class="p">));</span>
+
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_USERPWD</span><span class="p">,</span> <span class="nv">$secret_key</span><span class="o">.</span><span class="s2">":"</span><span class="p">);</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+
+<span class="nb">var_dump</span><span class="p">(</span><span class="nv">$response</span><span class="p">);</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl https://big.flip.id/api/v2/disbursement?pagination<span class="o">=</span>pagination&amp;page<span class="o">=</span>page&amp;sort<span class="o">=</span>sort&amp;atribut<span class="o">=</span>value <span class="se">\</span>
+    -u &lt;secret_key&gt;: 
+</code></pre>
+<p>Format of the url parameter:</p>
+
+<p>/disbursement?pagination=<b><code class="prettyprint">pagination</code></b>&amp;page=<b><code class="prettyprint">page</code></b>&amp;sort=<b><code class="prettyprint">sort</code></b>&amp;<b><code class="prettyprint">attribute</code></b>=<b><code class="prettyprint">value</code></b></p>
+
+<table><thead>
+<tr>
+<th>param</th>
+<th>value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>pagination</td>
+<td><strong><code class="prettyprint">integer (optional)</code></strong> <br> The pagination of the result. Default value is <code class="prettyprint">20</code></td>
+</tr>
+<tr>
+<td>page</td>
+<td><strong><code class="prettyprint">integer (optional)</code></strong> <br> The page number of the result to be viewed.</td>
+</tr>
+<tr>
+<td>sort</td>
+<td><strong><code class="prettyprint">string (optional)</code></strong> <br> Sort the result by the attribute. Use the attribute name (e.g <code class="prettyprint">sort=id</code>) to sort in <b>ascending</b> order or dash+attribute name (e.g <code class="prettyprint">sort=-id</code>) to sort in <b>descending</b> order.</td>
+</tr>
+</tbody></table>
+
+<p>You can also filter the result by changing <strong><code class="prettyprint">attribute</code></strong> with the attribute to be filtered and <strong><code class="prettyprint">value</code></strong> with the filter value. You can filter more than one attribute by appending another attribute filter to the url. Attribute that can be filtered are:</p>
+
+<ul>
+<li><code class="prettyprint">id</code> - exact comparison</li>
+<li><code class="prettyprint">amount</code> - exact comparison</li>
+<li><code class="prettyprint">status</code> - exact comparison</li>
+<li><code class="prettyprint">timestamp</code> - &ldquo;like&rdquo; comparison</li>
+<li><code class="prettyprint">bank_code</code> - &ldquo;like&rdquo; comparison</li>
+<li><code class="prettyprint">account_number</code> - &ldquo;like&rdquo; comparison</li>
+<li><code class="prettyprint">recipient_name</code> - &ldquo;like&rdquo; comparison</li>
+<li><code class="prettyprint">remark</code> - &ldquo;like&rdquo; comparison</li>
+<li><code class="prettyprint">time_served</code> - &ldquo;like&rdquo; comparison</li>
+<li><code class="prettyprint">created_from</code> - &ldquo;like&rdquo; comparison</li>
+<li><code class="prettyprint">direction</code> - exact comparison</li>
+</ul>
+
+<p>Example:</p>
+
+<p><a href="#">/disbursement?pagination=10&amp;page=5&amp;sort=-id&amp;status=PENDING&amp;bank_code=bni</a></p>
+
+<h3 id="response">Response</h3>
+<pre class="highlight json tab-json"><code><span class="err">Status</span><span class="w"> </span><span class="mi">200</span><span class="w">
+</span><span class="err">Content-Type</span><span class="p">:</span><span class="w"> </span><span class="err">application/json</span><span class="w">
+
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"total_data"</span><span class="p">:</span><span class="w"> </span><span class="mi">85</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data_per_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">790</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PENDING"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-28 14:32:47"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"bank_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bni"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"account_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0437051936"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"recipient_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"- FLIPTECH LENTERA INSPIRASI P"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"sender_bank"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bri"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"remark"</span><span class="p">:</span><span class="w"> </span><span class="s2">"testing"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"receipt"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"time_served"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000-00-00 00:00:00"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"bundle_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"company_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"recipient_city"</span><span class="p">:</span><span class="w"> </span><span class="mi">391</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"created_from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"API"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"direction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DOMESTIC_TRANSFER"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"sender"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">1500</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">789</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DONE"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-24 21:21:23"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"bank_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bni"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"account_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0437051936"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"recipient_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"- FLIPTECH LENTERA INSPIRASI P"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"sender_bank"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bri"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"remark"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test remark"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"receipt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://storage.biznetgiocloud.com/v1/AUTH_GIOOST443831/bukti_transfer/123993_2017-08-04%202017:07:26.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"time_served"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-25 09:11:35"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"bundle_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"company_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"recipient_city"</span><span class="p">:</span><span class="w"> </span><span class="mi">391</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"created_from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"API"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"direction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FOREIGN_INBOUND_SPECIAL_TRANSFER"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"sender"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"sender_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Doe"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"place_of_birth"</span><span class="p">:</span><span class="w"> </span><span class="mi">391</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"date_of_birth"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1992-01-01"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"taman bakokekok di jalan bakokekok 15 no.2 - 230"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"sender_identity_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nat_id"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"sender_identity_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"asdas213123"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"sender_country"</span><span class="p">:</span><span class="w"> </span><span class="mi">100252</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"job"</span><span class="p">:</span><span class="w"> </span><span class="s2">"babu"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>total_data</td>
+<td>Total data returned in all page</td>
+</tr>
+<tr>
+<td>data_per_page</td>
+<td>Total data returned in current page</td>
+</tr>
+<tr>
+<td>total_page</td>
+<td>Total/max page available</td>
+</tr>
+<tr>
+<td>page</td>
+<td>Current page</td>
+</tr>
+<tr>
+<td>data</td>
+<td>Array of <b>disbursement object</b>.</td>
+</tr>
+</tbody></table>
+
+<h4 id="disbursement-object">Disbursement Object</h4>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Flip&rsquo;s transaction id</td>
+</tr>
+<tr>
+<td>user_id</td>
+<td>Your account user id in our system</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>The amount of money to be disbursed in IDR</td>
+</tr>
+<tr>
+<td>status</td>
+<td>Transaction status. Possible values are: <br> <ul><li><code class="prettyprint">PENDING</code><br>Disbursement is still in process</li><li><code class="prettyprint">CANCELLED</code><br>The transaction is cancelled and the amount of the transaction plus the transaction fee will be credited to your balance. This will happen if the transfer process are failed for reason such as inactive recipient account, wrong account number, etc</li><li><code class="prettyprint">DONE</code><br>Disbursement process is finished and the money have been sent to the recipient</li></ul></td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td>The time when the disbursement request created. Time will be in GMT+7 with <code class="prettyprint">yyyy-mm-dd hh:mm:ss</code> format</td>
+</tr>
+<tr>
+<td>bank_code</td>
+<td>Bank code of the recipient bank</td>
+</tr>
+<tr>
+<td>account_number</td>
+<td>The account number of the recipient</td>
+</tr>
+<tr>
+<td>recipient_name</td>
+<td>The name of the recipient account holder. If the account number haven&rsquo;t cached by Flip yet, this attribute will show <b><code class="prettyprint">-</code></b> (dash) instead</td>
+</tr>
+<tr>
+<td>sender_bank</td>
+<td>The default sender bank in your account</td>
+</tr>
+<tr>
+<td>remark</td>
+<td>Remark to be included in the transfer made to the recipient</td>
+</tr>
+<tr>
+<td>receipt</td>
+<td>Url of the transfer receipt. The receipt will be a screenshot taken from the internet banking interface of each bank. This attribute will only show the url when the status is <code class="prettyprint">DONE</code></td>
+</tr>
+<tr>
+<td>time_served</td>
+<td>The time when the transaction is finished. Will only show valid value when the status is <code class="prettyprint">DONE</code></td>
+</tr>
+<tr>
+<td>bundle_id</td>
+<td>The bundle id of the transaction made from Big Flip Dashboard (csv upload or manual input). For the transaction created from API, the value will always be <code class="prettyprint">0</code></td>
+</tr>
+<tr>
+<td>company_id</td>
+<td>Your Big Flip account user id in our system</td>
+</tr>
+<tr>
+<td>recipient_city</td>
+<td>City code of the recipient city</td>
+</tr>
+<tr>
+<td>created_from</td>
+<td>The channel of which the transaction was created. Possible values are: <br><ul><li><code class="prettyprint">API</code></li><li><code class="prettyprint">DASHBOARD</code></li></ul></td>
+</tr>
+<tr>
+<td>direction</td>
+<td>The direction of the transaction. Possible values are: <br><ul><li><code class="prettyprint">DOMESTIC_TRANSFER</code><br>Common Disbursement from Indonesia to Indonesian recipient</li><li><code class="prettyprint">DOMESTIC_SPECIAL_TRANSFER</code><br>Special disbursement from the user of  a Money Transfer Company residing in Indonesia to Indonesian recipient</li><li><code class="prettyprint">FOREIGN_INBOUND_SPECIAL_TRANSFER</code><br>Special disbursement from the user of a Money Transfer Company residing in a foreign country to Indonesian recipient</li></ul></td>
+</tr>
+<tr>
+<td>sender</td>
+<td>Possible values are <code class="prettyprint">null</code> if the transaction is a common disbursement, and <b>sender object</b> if the transaction is a special disbursment.</td>
+</tr>
+<tr>
+<td>fee</td>
+<td>The fee of the transaction</td>
+</tr>
+</tbody></table>
+
+<h4 id="sender-object">Sender Object</h4>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>sender_name</td>
+<td>The name of the user of the Money Transfer Company that act as a sender</td>
+</tr>
+<tr>
+<td>place_of_birth</td>
+<td>City/country code of the Sender&rsquo;s place of birth</td>
+</tr>
+<tr>
+<td>date_of_birth</td>
+<td>Sender&rsquo;s date of birth</td>
+</tr>
+<tr>
+<td>address</td>
+<td>Sender&rsquo;s address</td>
+</tr>
+<tr>
+<td>sender_identity_type</td>
+<td>Sender&rsquo;s identity type. Possible value are: <br><ul><li><code class="prettyprint">nat_id</code></li><li><code class="prettyprint">drv_lic</code></li><li><code class="prettyprint">passport</code></li></ul></td>
+</tr>
+<tr>
+<td>sender_identity_number</td>
+<td>Sender&rsquo;s identity number</td>
+</tr>
+<tr>
+<td>sender_country</td>
+<td>Country code of the Sender&rsquo;s country</td>
+</tr>
+<tr>
+<td>job</td>
+<td>Sender&rsquo;s job. Possible values are:<br><ul><li><code class="prettyprint">housewife</code></li><li><code class="prettyprint">entrepreneur</code></li><li><code class="prettyprint">private_employee</code></li><li><code class="prettyprint">government_employee</code></li><li><code class="prettyprint">foundation_board</code></li><li><code class="prettyprint">indonesian_migrant_worker</code></li><li><code class="prettyprint">others</code></li></ul></td>
+</tr>
+</tbody></table>
+
+<h2 id="get-disbursement">Get Disbursement</h2>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/disbursement/{transaction_id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic [your encoded big flip secret key]</span>
+</code></pre>
+<p>Use this endpoint to get one specific transaction specified by <code class="prettyprint">transaction_id</code> in the request url.</p>
+
+<h3 id="request">Request</h3>
+<pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+<span class="nv">$secret_key</span> <span class="o">=</span> <span class="s2">"wwwwwwwxxxxxxxaaaaaaabbbbbbbbbcccccdddd"</span><span class="p">;</span>
+
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="s2">"https://big.flip.id/api/v2/disbursement/123"</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="k">TRUE</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HEADER</span><span class="p">,</span> <span class="k">FALSE</span><span class="p">);</span>
+
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HTTPHEADER</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+  <span class="s2">"Content-Type: application/x-www-form-urlencoded"</span>
+<span class="p">));</span>
+
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_USERPWD</span><span class="p">,</span> <span class="nv">$secret_key</span><span class="o">.</span><span class="s2">":"</span><span class="p">);</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+
+<span class="nb">var_dump</span><span class="p">(</span><span class="nv">$response</span><span class="p">);</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl https://big.flip.id/api/v2/disbursement/123 <span class="se">\</span>
+    -u &lt;secret_key&gt;: 
+</code></pre>
+<h3 id="response">Response</h3>
+<pre class="highlight json tab-json"><code><span class="err">Status</span><span class="w"> </span><span class="mi">200</span><span class="w">
+</span><span class="err">Content-Type</span><span class="p">:</span><span class="w"> </span><span class="err">application/json</span><span class="w">
+
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">790</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PENDING"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-28 14:32:47"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"bank_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bni"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"account_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0437051936"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"recipient_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"- FLIPTECH LENTERA INSPIRASI P"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sender_bank"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bri"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"remark"</span><span class="p">:</span><span class="w"> </span><span class="s2">"testing"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"receipt"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"time_served"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000-00-00 00:00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"bundle_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"company_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"recipient_city"</span><span class="p">:</span><span class="w"> </span><span class="mi">391</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"API"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"direction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DOMESTIC_TRANSFER"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sender"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">1500</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span></code></pre>
+<p>See detailed explanation at <a href="#get-all-disbursement">get all disbursement</a> response</p>
+
+<h2 id="disbursement-queue">Disbursement Queue</h2>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/disbursement/{transaction_id}/queue</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic [your encoded big flip secret key]</span>
+</code></pre>
+<p>Each disbursement transaction will queued to be sent to the recipient. You can view the queue number for each transanction in this endpoint.</p>
+
+<h3 id="request">Request</h3>
+<pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+<span class="nv">$secret_key</span> <span class="o">=</span> <span class="s2">"wwwwwwwxxxxxxxaaaaaaabbbbbbbbbcccccdddd"</span><span class="p">;</span>
+
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="s2">"https://big.flip.id/api/v2/disbursement/123/queue"</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="k">TRUE</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HEADER</span><span class="p">,</span> <span class="k">FALSE</span><span class="p">);</span>
+
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HTTPHEADER</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+  <span class="s2">"Content-Type: application/x-www-form-urlencoded"</span>
+<span class="p">));</span>
+
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_USERPWD</span><span class="p">,</span> <span class="nv">$secret_key</span><span class="o">.</span><span class="s2">":"</span><span class="p">);</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+
+<span class="nb">var_dump</span><span class="p">(</span><span class="nv">$response</span><span class="p">);</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl https://big.flip.id/api/v2/disbursement/123/queue <span class="se">\</span>
+    -u &lt;secret_key&gt;: 
+</code></pre>
+<p><code class="prettyprint">/disbursement/{transaction_id}/queue</code></p>
+
+<p>Replace <code class="prettyprint">{transaction_id}</code> with the desired transaction id.</p>
+
+<h3 id="response">Response</h3>
+<pre class="highlight json tab-json"><code><span class="err">Status</span><span class="w"> </span><span class="mi">200</span><span class="w">
+</span><span class="err">Content-Type</span><span class="p">:</span><span class="w"> </span><span class="err">application/json</span><span class="w">
+
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"queue"</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h2 id="city-list">City List</h2>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/disbursement/city-list</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic [your encoded big flip secret key]</span>
+</code></pre>
+<p>This endpoint will return the list of available city code along with it&rsquo;s name. The city name will be in Indonesian.</p>
+
+<h3 id="request">Request</h3>
+<pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+<span class="nv">$secret_key</span> <span class="o">=</span> <span class="s2">"wwwwwwwxxxxxxxaaaaaaabbbbbbbbbcccccdddd"</span><span class="p">;</span>
+
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="s2">"https://big.flip.id/api/v2/disbursement/city-list"</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="k">TRUE</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HEADER</span><span class="p">,</span> <span class="k">FALSE</span><span class="p">);</span>
+
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HTTPHEADER</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+  <span class="s2">"Content-Type: application/x-www-form-urlencoded"</span>
+<span class="p">));</span>
+
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_USERPWD</span><span class="p">,</span> <span class="nv">$secret_key</span><span class="o">.</span><span class="s2">":"</span><span class="p">);</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+
+<span class="nb">var_dump</span><span class="p">(</span><span class="nv">$response</span><span class="p">);</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl https://big.flip.id/api/v2/disbursement/city-list <span class="se">\</span>
+    -u &lt;secret_key&gt;: 
+</code></pre>
+<h3 id="response">Response</h3>
+<pre class="highlight json tab-json"><code><span class="err">Status</span><span class="w"> </span><span class="mi">200</span><span class="w">
+</span><span class="err">Content-Type</span><span class="p">:</span><span class="w"> </span><span class="err">application/json</span><span class="w">
+
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"102"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kab. Bekasi"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"103"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kab. Purwakarta"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"106"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kab. Karawang"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"108"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kab. Bogor"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"109"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kab. Sukabumi"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"110"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kab. Cianjur"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"111"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kab. Bandung"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"112"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kab. Sumedang"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"113"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kab. Tasikmalaya"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"114"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kab. Garut"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"115"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kab. Ciamis"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"116"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kab. Cirebon"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"117"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kab. Kuningan"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"118"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kab. Indramayu"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"119"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kab. Majalengka"</span><span class="p">,</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h2 id="country-list">Country List</h2>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/disbursement/country-list</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic [your encoded big flip secret key]</span>
+</code></pre>
+<p>This endpoint will return the list of available country code along with it&rsquo;s name. The country name will be in English.</p>
+
+<h3 id="request">Request</h3>
+<pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+<span class="nv">$secret_key</span> <span class="o">=</span> <span class="s2">"wwwwwwwxxxxxxxaaaaaaabbbbbbbbbcccccdddd"</span><span class="p">;</span>
+
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="s2">"https://big.flip.id/api/v2/disbursement/country-list"</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="k">TRUE</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HEADER</span><span class="p">,</span> <span class="k">FALSE</span><span class="p">);</span>
+
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HTTPHEADER</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+  <span class="s2">"Content-Type: application/x-www-form-urlencoded"</span>
+<span class="p">));</span>
+
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_USERPWD</span><span class="p">,</span> <span class="nv">$secret_key</span><span class="o">.</span><span class="s2">":"</span><span class="p">);</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+
+<span class="nb">var_dump</span><span class="p">(</span><span class="nv">$response</span><span class="p">);</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl https://big.flip.id/api/v2/disbursement/country-list <span class="se">\</span>
+    -u &lt;secret_key&gt;: 
+</code></pre>
+<h3 id="response">Response</h3>
+<pre class="highlight json tab-json"><code><span class="err">Status</span><span class="w"> </span><span class="mi">200</span><span class="w">
+</span><span class="err">Content-Type</span><span class="p">:</span><span class="w"> </span><span class="err">application/json</span><span class="w">
+
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"100000"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Afghanistan"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"100002"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Albania"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"100003"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Algeria/Aljazair"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"100004"</span><span class="p">:</span><span class="w"> </span><span class="s2">"America Samoa"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"100005"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Andorra"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"100006"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Angola"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"100007"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Anguilla"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"100008"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Antarctica"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"100009"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Antigua And Barbuda"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"100010"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Argentina"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"100011"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Armenia"</span><span class="p">,</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h2 id="city-and-country-list">City and Country List</h2>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/disbursement/city-country-list</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic [your encoded big flip secret key]</span>
+</code></pre>
+<p>This is just a combination from city and country list.</p>
+
+<h3 id="request">Request</h3>
+<pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+<span class="nv">$secret_key</span> <span class="o">=</span> <span class="s2">"wwwwwwwxxxxxxxaaaaaaabbbbbbbbbcccccdddd"</span><span class="p">;</span>
+
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="s2">"https://big.flip.id/api/v2/disbursement/city-country-list"</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="k">TRUE</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HEADER</span><span class="p">,</span> <span class="k">FALSE</span><span class="p">);</span>
+
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HTTPHEADER</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+  <span class="s2">"Content-Type: application/x-www-form-urlencoded"</span>
+<span class="p">));</span>
+
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_USERPWD</span><span class="p">,</span> <span class="nv">$secret_key</span><span class="o">.</span><span class="s2">":"</span><span class="p">);</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+
+<span class="nb">var_dump</span><span class="p">(</span><span class="nv">$response</span><span class="p">);</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl https://big.flip.id/api/v2/disbursement/city-country-list <span class="se">\</span>
+    -u &lt;secret_key&gt;: 
+</code></pre>
+<h3 id="response">Response</h3>
+<pre class="highlight json tab-json"><code><span class="err">Status</span><span class="w"> </span><span class="mi">200</span><span class="w">
+</span><span class="err">Content-Type</span><span class="p">:</span><span class="w"> </span><span class="err">application/json</span><span class="w">
+
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"102"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kab. Bekasi"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"103"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kab. Purwakarta"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"106"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kab. Karawang"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"108"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kab. Bogor"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"109"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kab. Sukabumi"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"110"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kab. Cianjur"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"111"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kab. Bandung"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"112"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kab. Sumedang"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"113"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kab. Tasikmalaya"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"114"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kab. Garut"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"115"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kab. Ciamis"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"116"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kab. Cirebon"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"117"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kab. Kuningan"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"118"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kab. Indramayu"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"119"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kab. Majalengka"</span><span class="p">,</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h2 id="bank-account-inquiry">Bank Account Inquiry</h2>
+<pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/disbursement/bank-account-inquiry</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic [your encoded big flip secret key]</span>
+</code></pre>
+<p>You can use this endpoint to get the bank account holder name. For now, it still take us a few seconds to do the inquiry. The result will be returned as a callback if we haven&rsquo;t cached it yet. If it have been cached, you will get the result instantly. Be sure to set up your callback inquiry entry in your <a href="https://big.flip.id/api-info" target="_blank">Big Flip dashboard</a>.</p>
+
+<h3 id="request">Request</h3>
+<pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+<span class="nv">$secret_key</span> <span class="o">=</span> <span class="s2">"wwwwwwwxxxxxxxaaaaaaabbbbbbbbbcccccdddd"</span><span class="p">;</span>
+
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="s2">"https://big.flip.id/api/v2/disbursement/bank-account-inquiry"</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="k">TRUE</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HEADER</span><span class="p">,</span> <span class="k">FALSE</span><span class="p">);</span>
+
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_POST</span><span class="p">,</span> <span class="k">TRUE</span><span class="p">);</span>
+
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_POSTFIELDS</span><span class="p">,</span> <span class="s2">"account_number=5465327020&amp;bank_code=bca"</span><span class="p">);</span>
+
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HTTPHEADER</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+  <span class="s2">"Content-Type: application/x-www-form-urlencoded"</span>
+<span class="p">));</span>
+
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_USERPWD</span><span class="p">,</span> <span class="nv">$secret_key</span><span class="o">.</span><span class="s2">":"</span><span class="p">);</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+
+<span class="nb">var_dump</span><span class="p">(</span><span class="nv">$response</span><span class="p">);</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl https://big.flip.id/api/v2/disbursement/bank-account-inquiry <span class="se">\</span>
+    -X POST <span class="se">\</span>
+    -u &lt;secret_key&gt;: <span class="se">\</span>
+    -d <span class="nv">account_number</span><span class="o">=</span><span class="s2">"5465327020"</span> <span class="se">\</span>
+    -d <span class="nv">bank_code</span><span class="o">=</span><span class="s2">"bca"</span>
+</code></pre>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>account_number</td>
+<td><strong><code class="prettyprint">string (required)</code></strong> <br> The account number of the bank account</td>
+</tr>
+<tr>
+<td>bank_code</td>
+<td><strong><code class="prettyprint">string (required)</code></strong> <br> Bank code of the account. Accepted value are listed <a href="#disbursement">above</a></td>
+</tr>
+</tbody></table>
+
+<h3 id="response">Response</h3>
+
+<blockquote>
+<p>Example of cached response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="err">Status</span><span class="w"> </span><span class="mi">200</span><span class="w">
+</span><span class="err">Content-Type</span><span class="p">:</span><span class="w"> </span><span class="err">application/json</span><span class="w">
+
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"bank_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bca"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"account_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5465327020"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"account_holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PT Fliptech Lentera IP"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example of uncached response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="err">Status</span><span class="w"> </span><span class="mi">200</span><span class="w">
+</span><span class="err">Content-Type</span><span class="p">:</span><span class="w"> </span><span class="err">application/json</span><span class="w">
+
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"bank_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bca"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"account_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5465327020"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"account_holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PENDING"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example of invalid account</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="err">Status</span><span class="w"> </span><span class="mi">200</span><span class="w">
+</span><span class="err">Content-Type</span><span class="p">:</span><span class="w"> </span><span class="err">application/json</span><span class="w">
+
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"bank_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bca"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"account_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1232123123212"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"account_holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INVALID_ACCOUNT_NUMBER"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>bank_code</td>
+<td>Bank code of the account</td>
+</tr>
+<tr>
+<td>account_number</td>
+<td>Account number of the bank account</td>
+</tr>
+<tr>
+<td>account_holder</td>
+<td>Name of the bank account holder</td>
+</tr>
+<tr>
+<td>status</td>
+<td>Possible values are <br> <ul><li><code class="prettyprint">PENDING</code><br>Inquiry still in process</li><li><code class="prettyprint">SUCCESS</code><br>Inquiry process is complete and bank account number is valid</li><li><code class="prettyprint">INVALID_ACCOUNT_NUMBER</code><br>Inquiry process is complete but the account number is invalid or maybe a virtual account number</li><li><code class="prettyprint">SUSPECTED_ACCOUNT</code><br>Bank account have been suspected on doing fraud. You still can do a disbursement to this account.</li><li><code class="prettyprint">BLACK_LISTED</code><br>Bank account have been confirmed on doing a fraud and therefore is blacklisted. You can&rsquo;t do a disbursment to this account.</li></ul></td>
+</tr>
+</tbody></table>
+
+<aside class="notice"><code class="prettyprint">SUSPECTED_ACCOUNT</code> and <code class="prettyprint">BLACK_LISTED</code> are based on Flip&rsquo;s user report.  This might be inacurrate, and we flag an exact string of the account number reported by our users. For example, <code class="prettyprint">350000069</code> will be different with <code class="prettyprint">00350000069</code> although it may be the same account. We are still working on a better way to handle this leading zeroes issue.</aside>
+
+          <h1 id="special-disbursement">Special Disbursement</h1>
+
+<p>Special Disbursement is a type of disbursement for a company operating as a Money Transfer Company (Perusahaan Transfer Dana). The difference with common disbursement, is in this transaction you must provide your senders personal information as part of the Know Your Customer (KYC) process mandated by Bank Indonesia.</p>
+
+<h2 id="create-special-disbursement">Create Special Disbursement</h2>
+<pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/special-disbursement</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic [your encoded big flip secret key]</span>
+</code></pre>
+<aside class="notice">We strongly suggest you to use idempotency key header to prevent accidentally created the same disbursement more than once. Please see more detail on <a href="#idempotent-request">Idempotent Request</a> section</aside>
+
+<h3 id="request">Request</h3>
+<pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+<span class="nv">$secret_key</span> <span class="o">=</span> <span class="s2">"wwwwwwwxxxxxxxaaaaaaabbbbbbbbbcccccdddd"</span><span class="p">;</span>
+
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="s2">"https://big.flip.id/api/v2/special-disbursement"</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="k">TRUE</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HEADER</span><span class="p">,</span> <span class="k">FALSE</span><span class="p">);</span>
+
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_POST</span><span class="p">,</span> <span class="k">TRUE</span><span class="p">);</span>
+
+<span class="nv">$payloads</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">"account_number"</span> <span class="o">=&gt;</span> <span class="s2">"0437051936"</span><span class="p">,</span>
+    <span class="s2">"bank_code"</span> <span class="o">=&gt;</span> <span class="s2">"bni"</span><span class="p">,</span>
+    <span class="s2">"amount"</span> <span class="o">=&gt;</span> <span class="s2">"10000"</span><span class="p">,</span>
+    <span class="s2">"remark"</span> <span class="o">=&gt;</span> <span class="s2">"testing"</span><span class="p">,</span>
+    <span class="s2">"recipient_city"</span> <span class="o">=&gt;</span> <span class="s2">"391"</span><span class="p">,</span>
+    <span class="s2">"sender_country"</span> <span class="o">=&gt;</span> <span class="mi">100252</span><span class="p">,</span>
+    <span class="s2">"sender_place_of_birth"</span> <span class="o">=&gt;</span> <span class="mi">391</span><span class="p">,</span>
+    <span class="s2">"sender_date_of_birth"</span> <span class="o">=&gt;</span> <span class="s2">"1992-01-01"</span><span class="p">,</span>
+    <span class="s2">"sender_identity_type"</span> <span class="o">=&gt;</span> <span class="s2">"nat_id"</span><span class="p">,</span>
+    <span class="s2">"sender_name"</span> <span class="o">=&gt;</span> <span class="s2">"paijo"</span><span class="p">,</span>
+    <span class="s2">"sender_address"</span> <span class="o">=&gt;</span> <span class="s2">"taman bakokekok di jalan bakokekok 15 no.2 - 230"</span><span class="p">,</span>
+    <span class="s2">"sender_identity_number"</span> <span class="o">=&gt;</span> <span class="s2">"123456789"</span><span class="p">,</span>
+    <span class="s2">"sender_job"</span> <span class="o">=&gt;</span> <span class="s2">"private_employee"</span><span class="p">,</span>
+    <span class="s2">"direction"</span> <span class="o">=&gt;</span> <span class="s2">"DOMESTIC_SPECIAL_TRANSFER"</span>
+<span class="p">];</span>
+
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_POSTFIELDS</span><span class="p">,</span> <span class="nb">http_build_query</span><span class="p">(</span><span class="nv">$payloads</span><span class="p">));</span>
+
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HTTPHEADER</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+  <span class="s2">"Content-Type: application/x-www-form-urlencoded"</span>
+<span class="p">));</span>
+
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_USERPWD</span><span class="p">,</span> <span class="nv">$secret_key</span><span class="o">.</span><span class="s2">":"</span><span class="p">);</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+
+<span class="nb">var_dump</span><span class="p">(</span><span class="nv">$response</span><span class="p">);</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl https://big.flip.id/api/v2/special-disbursement <span class="se">\</span>
+    -X POST <span class="se">\</span>
+    -u &lt;secret_key&gt;: <span class="se">\</span>
+    -d <span class="nv">account_number</span><span class="o">=</span><span class="s2">"0437051936"</span> <span class="se">\</span>
+    -d <span class="nv">bank_code</span><span class="o">=</span><span class="s2">"bni"</span> <span class="se">\</span>
+    -d <span class="nv">amount</span><span class="o">=</span><span class="s2">"10000"</span> <span class="se">\</span>
+    -d <span class="nv">remark</span><span class="o">=</span><span class="s2">"testing"</span> <span class="se">\</span>
+    -d <span class="nv">recipient_city</span><span class="o">=</span><span class="s2">"391"</span> <span class="se">\</span>
+    -d <span class="nv">sender_country</span><span class="o">=</span><span class="s2">"100252"</span> <span class="se">\</span>
+    -d <span class="nv">sender_place_of_birth</span><span class="o">=</span>391,
+    -d <span class="nv">sender_date_of_birth</span><span class="o">=</span><span class="s2">"1992-01-01"</span> <span class="se">\</span>
+    -d <span class="nv">sender_identity_type</span><span class="o">=</span><span class="s2">"nat_id"</span> <span class="se">\</span>
+    -d <span class="nv">sender_name</span><span class="o">=</span><span class="s2">"paijo"</span> <span class="se">\</span>
+    -d <span class="nv">sender_address</span><span class="o">=</span><span class="s2">"taman bakokekok di jalan bakokekok 15 no.2 - 230"</span> <span class="se">\</span>
+    -d <span class="nv">sender_identity_number</span><span class="o">=</span><span class="s2">"123456789"</span> <span class="se">\</span>
+    -d <span class="nv">sender_job</span><span class="o">=</span><span class="s2">"private_employee"</span> <span class="se">\</span>
+    -d <span class="nv">direction</span><span class="o">=</span><span class="s2">"DOMESTIC_SPECIAL_TRANSFER"</span>
+</code></pre>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>account_number</td>
+<td><strong><code class="prettyprint">string (required)</code></strong> <br> The account number of the recipient</td>
+</tr>
+<tr>
+<td>bank_code</td>
+<td><strong><code class="prettyprint">string (required)</code></strong> <br> Bank code of the recipient bank. Accepted value are listed <a href="#disbursement">above</a></td>
+</tr>
+<tr>
+<td>amount</td>
+<td><strong><code class="prettyprint">integer (required)</code></strong> <br> The amount of money to be disbursed (Rp20.000.000 max)</td>
+</tr>
+<tr>
+<td>remark</td>
+<td><strong><code class="prettyprint">string (optional)</code></strong> <br> Remark to be included in the transfer made to the recipient. Usually will appear as <code class="prettyprint">berita transfer</code> or <code class="prettyprint">remark</code> in the transfer receipt. Max length for this attribute is <strong>18</strong> character<br><em>Only for disbursement with the bank code being <code class="prettyprint">bri</code>, the remark will be prepended with the beneficiary name. Example: <code class="prettyprint">tes remark</code> will be <code class="prettyprint">john doe test remark</code></em></td>
+</tr>
+<tr>
+<td>recipient_city</td>
+<td><strong><code class="prettyprint">integer (optional)</code></strong> <br> City code of the recipient city. This attribute is mandatory only for <code class="prettyprint">bni</code>, <code class="prettyprint">cimb</code>, and <code class="prettyprint">bsm</code>. Available value can be retrieved from <a href="#city-list">city list</a></td>
+</tr>
+<tr>
+<td>sender_country</td>
+<td><strong><code class="prettyprint">integer (required)</code></strong> <br> Country code of the sender&rsquo;s residence. Available value can be retrieved from <a href="#country-list">country list</a></td>
+</tr>
+<tr>
+<td>sender_place_of_birth</td>
+<td><strong><code class="prettyprint">integer (required)</code></strong> <br> City/country code of the sender&rsquo;s place of birth. Use city code if the sender&rsquo;s place of birth is in Indonesia, and country code if outside Indonesia. Available value can be retrieved from <a href="#city-and-country-list">city/country list</a></td>
+</tr>
+<tr>
+<td>sender_date_of_birth</td>
+<td><strong><code class="prettyprint">string/date (required)</code></strong> <br> Sender&rsquo;s date of birth with <code class="prettyprint">YYYY-MM-DD</code> format</td>
+</tr>
+<tr>
+<td>sender_identity_type</td>
+<td><strong><code class="prettyprint">string (required)</code></strong> <br> Sender&rsquo;s ID type. Accepted value are: <br><ul><li><code class="prettyprint">nat_id</code><br>National Id Card or KTP in Indonesia</li><li><code class="prettyprint">drv_lic</code><br>Driving license</li><li><code class="prettyprint">passport</code></li></ul></td>
+</tr>
+<tr>
+<td>sender_name</td>
+<td><strong><code class="prettyprint">string (required)</code></strong> <br> The name of the user of the Money Transfer Company that act as a sender</td>
+</tr>
+<tr>
+<td>sender_address</td>
+<td><strong><code class="prettyprint">string (required)</code></strong> <br> Sender&rsquo;s address</td>
+</tr>
+<tr>
+<td>sender_identity_number</td>
+<td><strong><code class="prettyprint">string (required)</code></strong> <br> Sender&rsquo;s ID number</td>
+</tr>
+<tr>
+<td>sender_job</td>
+<td><strong><code class="prettyprint">string (required)</code></strong> Sender&rsquo;s job. Accepted values are:<br><ul><li><code class="prettyprint">housewife</code></li><li><code class="prettyprint">entrepreneur</code></li><li><code class="prettyprint">private_employee</code></li><li><code class="prettyprint">government_employee</code></li><li><code class="prettyprint">foundation_board</code><br>People who work at foundation as an employee</li><li><code class="prettyprint">indonesian_migrant_worker</code><br>Also known as TKI</li><li><code class="prettyprint">others</code></li></ul></td>
+</tr>
+<tr>
+<td>direction</td>
+<td><strong><code class="prettyprint">string (required)</code></strong> The direction of the transaction. Accepted values are: <br><ul><li><code class="prettyprint">DOMESTIC_SPECIAL_TRANSFER</code><br>When the sender and the recipient are both residing in Indonesia</li><li><code class="prettyprint">FOREIGN_INBOUND_SPECIAL_TRANSFER</code><br>When the sender are in a foreign country, but the recipient are in Indonesia</li></ul></td>
+</tr>
+</tbody></table>
+
+<h3 id="response">Response</h3>
+<pre class="highlight json tab-json"><code><span class="err">Status</span><span class="w"> </span><span class="mi">200</span><span class="w">
+</span><span class="err">Content-Type</span><span class="p">:</span><span class="w"> </span><span class="err">application/json</span><span class="w">
+
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">812</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10000"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PENDING"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-09-06 14:29:55"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"bank_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bni"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"account_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0437051936"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"recipient_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"- FLIPTECH LENTERA INSPIRASI P"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sender_bank"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bri"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"remark"</span><span class="p">:</span><span class="w"> </span><span class="s2">"testing"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"receipt"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"time_served"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000-00-00 00:00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"bundle_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"company_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"recipient_city"</span><span class="p">:</span><span class="w"> </span><span class="mi">391</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"API"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"direction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DOMESTIC_SPECIAL_TRANSFER"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sender"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"sender_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Doe"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sender_place_of_birth"</span><span class="p">:</span><span class="w"> </span><span class="mi">391</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sender_date_of_birth"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1992-01-31"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sender_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"taman bakokekok di jalan bakokekok 15 no.2 - 230"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sender_identity_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nat_id"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sender_identity_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"asdas213123"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sender_country"</span><span class="p">:</span><span class="w"> </span><span class="mi">100252</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sender_job"</span><span class="p">:</span><span class="w"> </span><span class="s2">"private_employee"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">1500</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>See detailed explanation at <a href="#get-all-disbursement">get all disbursement</a> response.</p>
+
+          <h1 id="callback">Callback</h1>
+<pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$data</span> <span class="o">=</span> <span class="nb">isset</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">'data'</span><span class="p">])</span> <span class="o">?</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s1">'data'</span><span class="p">]</span> <span class="o">:</span> <span class="kc">null</span><span class="p">;</span>
+<span class="nv">$token</span> <span class="o">=</span> <span class="nb">isset</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">'token'</span><span class="p">])</span> <span class="o">?</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s1">'token'</span><span class="p">]</span> <span class="o">:</span> <span class="kc">null</span><span class="p">;</span>
+<span class="k">if</span><span class="p">(</span><span class="nv">$token</span> <span class="o">===</span> <span class="s1">'the_token_you_get_from_big_flip_dashboard'</span><span class="p">){</span>
+    <span class="nv">$decoded_data</span> <span class="o">=</span> <span class="nb">json_decode</span><span class="p">(</span><span class="nv">$data</span><span class="p">);</span>
+    <span class="nb">print_r</span><span class="p">(</span><span class="nv">$decoded_data</span><span class="p">);</span>
+    <span class="c1">//example of what will be printed are listed below
+</span><span class="p">}</span>
+</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># See php tab for sample code</span>
+</code></pre>
+<blockquote>
+<p>Example of bank account inquiry</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"bank_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bca"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"account_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5465327020"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"account_holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PT Fliptech Lentera IP"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example of disbursement</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">790</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DONE"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-28 14:32:47"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"bank_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bni"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"account_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0437051936"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"recipient_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"- FLIPTECH LENTERA INSPIRASI P"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sender_bank"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bri"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"remark"</span><span class="p">:</span><span class="w"> </span><span class="s2">"testing"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"receipt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://storage.biznetgiocloud.com/v1/AUTH_GIOOST443831/bukti_transfer/123993_2017-08-04%202017:07:26.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"time_served"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-28 14:42:47"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"bundle_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"company_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"recipient_city"</span><span class="p">:</span><span class="w"> </span><span class="mi">391</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"API"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"direction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DOMESTIC_TRANSFER"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sender"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">1500</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example of special disbursement</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">812</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10000"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DONE"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-09-06 14:29:55"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"bank_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bni"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"account_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0437051936"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"recipient_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"- FLIPTECH LENTERA INSPIRASI P"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sender_bank"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bri"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"remark"</span><span class="p">:</span><span class="w"> </span><span class="s2">"testing"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"receipt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://storage.biznetgiocloud.com/v1/AUTH_GIOOST443831/bukti_transfer/123993_2017-08-04%202017:07:26.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"time_served"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-09-06 14:39:55"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"bundle_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"company_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"recipient_city"</span><span class="p">:</span><span class="w"> </span><span class="mi">391</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"API"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"direction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DOMESTIC_SPECIAL_TRANSFER"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sender"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"sender_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Doe"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"place_of_birth"</span><span class="p">:</span><span class="w"> </span><span class="mi">391</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"date_of_birth"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1992-01-31"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"taman bakokekok di jalan bakokekok 15 no.2 - 230"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sender_identity_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nat_id"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sender_identity_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"asdas213123"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sender_country"</span><span class="p">:</span><span class="w"> </span><span class="mi">100252</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"job"</span><span class="p">:</span><span class="w"> </span><span class="s2">"private_employee"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">1500</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>When your transaction status changed to <code class="prettyprint">DONE</code> or <code class="prettyprint">CANCELLED</code>, or when our system have complete the bank account inquiry process, we will hit the URL you&rsquo;ve provided in your <a href="https://big.flip.id/api-info" target="_blank">Big Flip dashboard</a>. The provided URL must return a <code class="prettyprint">200</code> HTTP Status Code. If the URL return another HTTP Status Code, our system will retry the request 5 times, with 2 minute interval for disbursement callback. For bank account inquiry, we&rsquo;ll only do the callback once, so you have to make sure that your callback URL always in good condition.</p>
+
+<p>We will hit your URL using POST request with content type <code class="prettyprint">application/x-www-form-urlencoded</code> and payload as described below:</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>data</td>
+<td><code class="prettyprint">string</code><br>JSON array string with content exactly the same as the response of disbursement or bank account inquiry (see example on the right side)</td>
+</tr>
+<tr>
+<td>token</td>
+<td><code class="prettyprint">string</code><br>Validation token to ensure that the callback is coming from our server. You can get your token in your Big Flip dashboard.</td>
+</tr>
+</tbody></table>
+
+<p>Example code of how to receive the callback are shown on the right side.</p>
+
+          <h1 id="general">General</h1>
+
+<h2 id="get-balance">Get Balance</h2>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/general/balance</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">basic [your encoded big flip secret key]</span>
+</code></pre>
+<p>This endpoint will return your current account balance in Rupiah (IDR).</p>
+
+<h3 id="request">Request</h3>
+<pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+<span class="nv">$secret_key</span> <span class="o">=</span> <span class="s2">"wwwwwwwxxxxxxxaaaaaaabbbbbbbbbcccccdddd"</span><span class="p">;</span>
+
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="s2">"https://big.flip.id/api/v2/general/balance"</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="k">TRUE</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HEADER</span><span class="p">,</span> <span class="k">FALSE</span><span class="p">);</span>
+
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HTTPHEADER</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+  <span class="s2">"Content-Type: application/x-www-form-urlencoded"</span>
+<span class="p">));</span>
+
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_USERPWD</span><span class="p">,</span> <span class="nv">$secret_key</span><span class="o">.</span><span class="s2">":"</span><span class="p">);</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+
+<span class="nb">var_dump</span><span class="p">(</span><span class="nv">$response</span><span class="p">);</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl https://big.flip.id/api/v2/general/balance <span class="se">\</span>
+    -u &lt;secret_key&gt;: 
+</code></pre>
+<h3 id="response">Response</h3>
+<pre class="highlight json tab-json"><code><span class="err">Status</span><span class="w"> </span><span class="mi">200</span><span class="w">
+</span><span class="err">Content-Type</span><span class="p">:</span><span class="w"> </span><span class="err">application/json</span><span class="w">
+
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"balance"</span><span class="p">:</span><span class="w"> </span><span class="mi">49656053</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h2 id="get-bank-info">Get Bank Info</h2>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/general/banks</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">basic [your encoded big flip secret key]</span>
+</code></pre>
+<p>This endpoint will return list of bank codes, along with several other information. We recommend you to hit this endpoint before creating a disbursement so that you can give information like <code class="prettyprint">queue</code> or <code class="prettyprint">status</code> to your user or customer.</p>
+
+<h3 id="request">Request</h3>
+<pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+<span class="nv">$secret_key</span> <span class="o">=</span> <span class="s2">"wwwwwwwxxxxxxxaaaaaaabbbbbbbbbcccccdddd"</span><span class="p">;</span>
+
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="s2">"https://big.flip.id/api/v2/general/banks"</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="k">TRUE</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HEADER</span><span class="p">,</span> <span class="k">FALSE</span><span class="p">);</span>
+
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HTTPHEADER</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+  <span class="s2">"Content-Type: application/x-www-form-urlencoded"</span>
+<span class="p">));</span>
+
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_USERPWD</span><span class="p">,</span> <span class="nv">$secret_key</span><span class="o">.</span><span class="s2">":"</span><span class="p">);</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+
+<span class="nb">var_dump</span><span class="p">(</span><span class="nv">$response</span><span class="p">);</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl https://big.flip.id/api/v2/general/banks <span class="se">\</span>
+    -u &lt;secret_key&gt;: 
+</code></pre>
+<p>/banks?code=<strong><code class="prettyprint">bank_code</code></strong></p>
+
+<p>You can also provide an optional bank code to filter the result to a specific bank only</p>
+
+<h3 id="response">Response</h3>
+<pre class="highlight json tab-json"><code><span class="err">Status</span><span class="w"> </span><span class="mi">200</span><span class="w">
+</span><span class="err">Content-Type</span><span class="p">:</span><span class="w"> </span><span class="err">application/json</span><span class="w">
+
+</span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"bank_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mandiri"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mandiri"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"queue"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DISTURBED"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"bank_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bri"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRI"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"queue"</span><span class="p">:</span><span class="w"> </span><span class="mi">39</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPERATIONAL"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"bank_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bni"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BNI"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"queue"</span><span class="p">:</span><span class="w"> </span><span class="mi">57</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPERATIONAL"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"bank_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bca"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BCA"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"queue"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPERATIONAL"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"bank_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bsm"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bank Syariah Mandiri"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"queue"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HEAVILY_DISTURBED"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"bank_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cimb"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CIMB Niaga"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"queue"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPERATIONAL"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"bank_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"muamalat"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Muamalat"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"queue"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPERATIONAL"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="err">.</span><span class="w">
+    </span><span class="err">.</span><span class="w">
+    </span><span class="err">.</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Filtered result:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="err">Status</span><span class="w"> </span><span class="mi">200</span><span class="w">
+</span><span class="err">Content-Type</span><span class="p">:</span><span class="w"> </span><span class="err">application/json</span><span class="w">
+
+</span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"bank_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bca"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BCA"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"queue"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPERATIONAL"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>bank_code</td>
+<td>Flip&rsquo;s bank code. <code class="prettyprint">bni</code> is the code for both BNI and BNI Syariah, and <code class="prettyprint">cimb</code> is the code for both CIMB Niaga and CIMB Niaga Syariah</td>
+</tr>
+<tr>
+<td>name</td>
+<td>The name of the bank as we usually say it in Indonesian</td>
+</tr>
+<tr>
+<td>fee</td>
+<td>The fee that you&rsquo;ll be charged if you send money to this bank</td>
+</tr>
+<tr>
+<td>queue</td>
+<td>Current queue for related bank. The longer/higher the queue number, the longer the transaction will be finished.</td>
+</tr>
+<tr>
+<td>status</td>
+<td>The status of the disbursement process in related bank. Possible values are: <br><ul><li><code class="prettyprint">OPERATIONAL</code><br>Banks are operational, disbursement will be processed as soon as possible</li><li><code class="prettyprint">DISTURBED</code><br>Banks are slow or have another problem. Disbursement will still be processed, but in slower pace and might be delayed</li><li><code class="prettyprint">HEAVILY_DISTURBED</code><br>Banks are having an error, offline, or another problem that result in a nearly unusable system. Disbursement to this bank can not be processed in a short time, and maybe won&rsquo;t be processed in the same day. You can ask for a refund if this happen.</li></ul></td>
+</tr>
+</tbody></table>
+
+<h2 id="is-operational">Is Operational</h2>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/general/operational</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">basic [your encoded big flip secret key]</span>
+</code></pre>
+<p>This endpoint will return information whether Flip currently is operational or not. Our operational hour is <strong>08.00-18.00 (WIB/GMT+7) on Monday-Friday</strong>, and <strong>08.00-13.30 (WIB/GMT+7) on Saturday</strong>. Currently we are not operational on Sunday. All transactions made outside those hour will be processed on the next operational hour.</p>
+
+<h3 id="request">Request</h3>
+<pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+<span class="nv">$secret_key</span> <span class="o">=</span> <span class="s2">"wwwwwwwxxxxxxxaaaaaaabbbbbbbbbcccccdddd"</span><span class="p">;</span>
+
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="s2">"https://big.flip.id/api/v2/general/operational"</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="k">TRUE</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HEADER</span><span class="p">,</span> <span class="k">FALSE</span><span class="p">);</span>
+
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HTTPHEADER</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+  <span class="s2">"Content-Type: application/x-www-form-urlencoded"</span>
+<span class="p">));</span>
+
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_USERPWD</span><span class="p">,</span> <span class="nv">$secret_key</span><span class="o">.</span><span class="s2">":"</span><span class="p">);</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+
+<span class="nb">var_dump</span><span class="p">(</span><span class="nv">$response</span><span class="p">);</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl https://big.flip.id/api/v2/general/operational <span class="se">\</span>
+    -u &lt;secret_key&gt;: 
+</code></pre>
+<h3 id="response">Response</h3>
+<pre class="highlight json tab-json"><code><span class="err">Status</span><span class="w"> </span><span class="mi">200</span><span class="w">
+</span><span class="err">Content-Type</span><span class="p">:</span><span class="w"> </span><span class="err">application/json</span><span class="w">
+
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"operational"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h2 id="is-maintenance">Is Maintenance</h2>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/general/maintenance</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
+</code></pre>
+<p>This endpoint will return information whether Flip currently is on maintenance or not. When Flip is on maintenance, you can&rsquo;t do any request except to this endpoint. Any request to other endpoint will return <code class="prettyprint">401</code> status code</p>
+
+<h3 id="request">Request</h3>
+<pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+<span class="nv">$secret_key</span> <span class="o">=</span> <span class="s2">"wwwwwwwxxxxxxxaaaaaaabbbbbbbbbcccccdddd"</span><span class="p">;</span>
+
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="s2">"https://big.flip.id/api/v2/general/maintenance"</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="k">TRUE</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HEADER</span><span class="p">,</span> <span class="k">FALSE</span><span class="p">);</span>
+
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HTTPHEADER</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+  <span class="s2">"Content-Type: application/x-www-form-urlencoded"</span>
+<span class="p">));</span>
+
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_USERPWD</span><span class="p">,</span> <span class="nv">$secret_key</span><span class="o">.</span><span class="s2">":"</span><span class="p">);</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+
+<span class="nb">var_dump</span><span class="p">(</span><span class="nv">$response</span><span class="p">);</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl https://big.flip.id/api/v2/general/maintenance <span class="se">\</span>
+    -u &lt;secret_key&gt;: 
+</code></pre>
+<h3 id="response">Response</h3>
+<pre class="highlight json tab-json"><code><span class="err">Status</span><span class="w"> </span><span class="mi">200</span><span class="w">
+</span><span class="err">Content-Type</span><span class="p">:</span><span class="w"> </span><span class="err">application/json</span><span class="w">
+
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"maintenance"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+          <h1 id="changelog">Changelog</h1>
+
+<h3 id="wednesday-jan-22-2020">Wednesday, Jan 22 2020</h3>
+
+<ul>
+<li>Add OVO, Dana, and Doku as a bank code</li>
+</ul>
+
+<h3 id="wednesday-may-5-2019">Wednesday, May 5 2019</h3>
+
+<ul>
+<li>Fix special disbursement url in sample code</li>
+</ul>
+
+<h3 id="wednesday-february-20-2019">Wednesday, February 20 2019</h3>
+
+<ul>
+<li>Change <code class="prettyprint">WRONG_ACCOUNT_NUMBER</code> to <code class="prettyprint">CANCELLED</code> in sandbox env description</li>
+</ul>
+
+<h3 id="friday-february-8-2019">Friday, February 8 2019</h3>
+
+<ul>
+<li>Change sample price on <code class="prettyprint">/general/banks</code> endpoint</li>
+</ul>
+
+<h3 id="sunday-january-13-2018">Sunday, January 13 2018</h3>
+
+<ul>
+<li>Update operational time</li>
+<li>Remove information about race condition</li>
+</ul>
+
+<h3 id="wednesday-august-29-2018">Wednesday, August 29 2018</h3>
+
+<ul>
+<li>Update bank availability info</li>
+</ul>
+
+<h3 id="monday-may-28-2018">Monday, May 28 2018</h3>
+
+<ul>
+<li>Add information about changed remark when disbursing to <code class="prettyprint">bri</code></li>
+</ul>
+
+<h3 id="wednesday-april-18-2018">Wednesday, April 18 2018</h3>
+
+<ul>
+<li>Change remark from <code class="prettyprint">required</code> to <code class="prettyprint">optional</code></li>
+</ul>
+
+<h3 id="monday-january-15-2018">Monday, January 15 2018</h3>
+
+<ul>
+<li>Update idempotency key behavior</li>
+</ul>
+
+<h3 id="wednesday-december-6-2017">Wednesday, December 6 2017</h3>
+
+<ul>
+<li>Update bank availability info</li>
+</ul>
+
+<h3 id="monday-november-20-2017">Monday, November 20 2017</h3>
+
+<ul>
+<li>Change sender attribute name for improved readability</li>
+</ul>
+
+<h3 id="thursday-november-9-2017">Thursday, November 9 2017</h3>
+
+<ul>
+<li>Add idempotency-key header</li>
+</ul>
+
+<h3 id="wednesday-october-25-2017">Wednesday, October 25 2017</h3>
+
+<ul>
+<li>Add list of newly supported banks</li>
+</ul>
+
+<h3 id="wednesday-october-18-2017">Wednesday, October 18 2017</h3>
+
+<ul>
+<li>Change country list to English</li>
+</ul>
+
+<h3 id="wednesday-september-13-2017">Wednesday, September 13 2017</h3>
+
+<ul>
+<li>Add remaining endpoint</li>
+<li>Remove leading zeroes removal information, as it cause another problem</li>
+</ul>
+
+<h3 id="wednesday-august-9-2017">Wednesday, August 9 2017</h3>
+
+<ul>
+<li>Add leading zeroes removal information</li>
+</ul>
+
+<h3 id="monday-july-17-2017">Monday, July 17 2017</h3>
+
+<ul>
+<li>Initial commit</li>
+</ul>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="php">PHP</a>
+                <a href="#" data-language-name="shell">Shell</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
