@@ -1,15 +1,15 @@
 # Changelog
 
-## Wednesday, Jan 22 2020
+### Wednesday, Jan 22 2020
 * Add OVO, Dana, and Doku as a bank code
 
-## Wednesday, May 5 2019
+### Wednesday, May 5 2019
 * Fix special disbursement url in sample code
 
-## Wednesday, February 20 2019
+### Wednesday, February 20 2019
 * Change `WRONG_ACCOUNT_NUMBER` to `CANCELLED` in sandbox env description
 
-## Friday, February 8 2019
+### Friday, February 8 2019
 * Change sample price on `/general/banks` endpoint
 
 ### Sunday, January 13 2018
